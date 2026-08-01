@@ -13,8 +13,18 @@ serving engine, comparison client, or container image.
 The repository hero image was generated through Grok Imagine and is labeled
 “Created with Grok” in accordance with the
 [xAI Brand Guidelines](https://x.ai/legal/brand-guidelines). The image is
-conceptual artwork, contains no xAI or hardware-vendor logo, and is not used as
-benchmark or physical-topology evidence.
+conceptual artwork and is not used as benchmark or physical-topology evidence.
+Its stylized DGX Spark form factor was visually grounded with official
+[NVIDIA product photography](https://developer.nvidia.com/local-ai), and its
+generated whale emblem was visually grounded with the official
+[DeepSeek GitHub organization avatar](https://github.com/deepseek-ai). Neither
+upstream reference asset is redistributed here, and the generated emblem is not
+a byte-identical copy of the upstream avatar.
+
+NVIDIA, DGX, DGX Spark, DeepSeek, and their associated marks belong to their
+respective owners. Names, stylized product identification, and the generated
+whale motif are used only to identify the independently tested hardware and
+model. No endorsement, partnership, or official benchmark status is implied.
 
 The tested container is identified in [run-identity.json](data/run-identity.json)
 by an exact image digest. The custom image and its build recipe are not included,

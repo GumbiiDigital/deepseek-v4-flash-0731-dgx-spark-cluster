@@ -10,102 +10,75 @@
 | Generated | 2026-08-01 UTC |
 | Dimensions | 1,248 x 832 pixels |
 | Format | JPEG, sRGB |
-| SHA-256 | `a52c91aae663ca3a2f88bde64614b5037ba6b081e5279c8eeb2d5861887e814c` |
+| File size | 237,300 bytes |
+| SHA-256 | `b71298f90d391eeb8ddeebc0196c246260effde7f5eda577639647e8e4bcbb66` |
 | Relationship | Original generated JPEG bytes; not resized, cropped, or recompressed |
 | Embedded provenance | C2PA manifest markers identify `Grok Imagine`, `trainedAlgorithmicMedia`, and `SpaceXAI`; the original metadata is preserved byte-for-byte |
 
-The account-scoped asset origin is intentionally not published. The hash above
-anchors the exact bytes that are in this repository.
+The account-scoped generation URL is intentionally not published. The hash
+above anchors the exact bytes in this repository.
 
 A dedicated `c2patool` verifier was not available locally, so this record does
 not claim independent cryptographic validation of the embedded signature.
 
+## Visual-reference record
+
+The final image was grounded with official public references so the systems
+would read as DGX Sparks rather than generic computers. The references were
+used only as visual inputs and are not redistributed in this repository.
+
+| Reference | Public source | Downloaded reference SHA-256 | Relationship to final image |
+|---|---|---|---|
+| NVIDIA DGX Spark product photography | [NVIDIA Local AI](https://developer.nvidia.com/local-ai) / [official image](https://developer.download.nvidia.com/images/local-ai/nvidia-dgx-spark-panels-ari.jpg) | `5d1ffa3ab5c6ce82e6890651a6af554b264b46c1f3cada4bcec82973c5d148c9` | Form-factor reference only; the source photograph is not included |
+| Device-only crop made from that NVIDIA image | Derived locally from the reference above | `f034b6153e20e36fba4c4af239225c4ad8e329bf0e0b6e248d10f8480d2723e7` | Prompt reference only; not included |
+| DeepSeek organization avatar | [Official DeepSeek GitHub organization](https://github.com/deepseek-ai) / [avatar image](https://avatars.githubusercontent.com/u/148330874?v=4) | `55e6e0c1ba0c453749211368b8a26e00f470b4ab696ce1fed539d70777d4aab1` | Identity reference only; the generated whale is not a copy of the avatar bytes |
+
 ## Accepted generation path
 
-The final image was produced through a style-and-layout prompt followed by one
-focused form-factor repair. The repair used the preceding generated image as a
-composition reference, so the text alone is not presented as a deterministic
-reproduction recipe.
+The accepted image came from a bounded three-stage correction sequence in the
+same Grok conversation:
 
-### Style and layout prompt
+1. A hardware-only pass used the official NVIDIA device crop as the form-factor
+   reference and asked for eight compact, horizontal Spark-style systems in
+   four separated pairs.
+2. A count-only repair locked the composition to exactly eight systems, exactly
+   four two-system groups, and exactly one cyan link inside each pair.
+3. A branding-only pass preserved the accepted hardware and count while adding
+   the exact title, exact configuration line, and one whale emblem visually
+   grounded by the official DeepSeek organization avatar.
 
-```text
-Use the image you just generated only as a rough composition reference. Create
-a completely new, much more energetic wide 16:9 repository hero graphic for a
-real eight-system cluster.
-
-Show exactly eight recognizable NVIDIA DGX Spark desktop systems, not generic
-black boxes: compact low square chassis, black front panels, copper-gold
-perforated top surfaces, and restrained authentic product-style "DGX SPARK"
-identification on the hardware. Arrange them as exactly four clearly separated
-two-system pairs. Each pair is connected by one bright cyan data link, and all
-four pairs converge toward a central burst of electric cyan and deep-blue
-light.
-
-Make the central visual a dramatic lightning-flash / deep-ocean energy surge—
-sharp, fast, technical, and unmistakably "Flash"—with a subtle abstract
-deep-sea wave silhouette in the energy, but do not copy or invent a DeepSeek
-corporate logo. Add only this exact clean headline: "DEEPSEEK V4 FLASH 0731".
-Add only this exact smaller line: "8× DGX SPARK • 4× TP=2". Use crisp modern
-geometric typography with safe margins.
-
-Premium cinematic product visualization, aggressive high contrast,
-graphite-black background, cyan/teal energy, NVIDIA-green accent light, copper
-hardware highlights, clean industrial precision, dramatic depth, and enough
-negative space to remain readable as a GitHub README hero.
-
-Hard constraints: exactly eight devices, exactly four pairs, no people, no room
-or location detail, no rack, no extra devices, no tangled cables, no performance
-numbers, no tokens-per-second claims, no "record" claim, no personal
-identifiers, no email, no usernames, no extra words, no misspelled text, and no
-watermark.
-```
-
-### Accepted form-factor repair prompt
-
-```text
-Use the most recent generated image as a composition and lighting reference
-only. Correct one specific failure: every computer is the wrong form factor.
-
-Replace all eight tall tower/server shapes with exactly eight low-profile
-NVIDIA DGX Spark desktop systems sitting flat on the surface. Each DGX Spark
-must be a compact square slab approximately three times wider than it is tall,
-with a black front edge, dark sidewalls, and a copper-gold perforated top panel—
-the real compact desktop DGX Spark silhouette. Show no rear panels, no rack
-faces, no tower cases, and absolutely no loose or bundled cables.
-
-Preserve the strong central cyan lightning, graphite background, exact
-eight-device count, exact four separated two-device pairs, cyan pair links,
-cinematic copper/cyan color palette, safe margins, and the clean centered
-typography exactly as written:
-"DEEPSEEK V4 FLASH 0731"
-"8× DGX SPARK • 4× TP=2"
-
-No people, no room detail, no extra devices, no performance numbers, no record
-claim, no personal identifiers, no extra wording, no misspelled text, and no
-watermark.
-```
-
-The generator returned a 1,248 x 832 image rather than the requested 16:9
-canvas. The result was accepted because the repository does not make an aspect
-ratio claim and the full image works as the README hero without cropping.
+The shared hard constraints were: no people, no room or location detail, no
+extra systems, no performance number, no record claim, no personal identifier,
+no extra text, and no watermark. The generator returned a 1,248 x 832 image.
+The repository makes no 16:9 claim, and the full image is used without cropping.
 
 ## Acceptance record
 
-- Exactly eight low-profile systems in four visible two-system groups: pass.
-- Exact two-line title and configuration label, with no additional wording:
+- Exactly eight Spark-style systems arranged as four visible two-system groups:
   pass.
-- Central cyan flash and one visible cyan link within each pair: pass.
-- No extra device, person, room detail, rack, loose cable, performance figure,
-  record claim, personal identifier, or watermark: pass.
-- Low-profile square silhouette, black sidewalls, and copper perforated tops:
-  pass as stylized DGX Spark identification, not as a photographic product
-  replica.
+- One visible cyan connection inside each pair: pass.
+- Solid champagne-metal horizontal chassis, textured dark front, and twin tall
+  rounded front recesses derived from the official product reference: pass as
+  stylized identification, not as a photographic replica.
+- Exact title `DEEPSEEK V4 FLASH 0731`: pass.
+- Exact configuration line `8× DGX SPARK • 4× TP=2`: pass.
+- One blue whale emblem, generated from the official DeepSeek avatar reference:
+  pass as an identification motif, not as a byte-identical upstream logo asset.
+- No person, room detail, rack, extra device, performance figure, record claim,
+  personal identifier, account URL, or watermark: pass.
 - Suitable as conceptual repository artwork: pass.
-- Suitable as physical topology or benchmark evidence: no; explicitly out of
+- Suitable as physical-topology or benchmark evidence: no; explicitly out of
   scope.
 
-An intermediate revision with tall tower cases and cable bundles was rejected
-and is not included in the public tree. The accepted asset was generated through
-Grok chat, downloaded as the original response bytes, and visually reviewed
-before inclusion.
+Drafts with six tower-like systems, four oversized systems, a distorted animal
+mark, or corrupted subtitle text were rejected and are not included in the
+public tree. The previous public hero at commit `e9ea41a` was superseded because
+its generic low-profile chassis were not a defensible DGX Spark depiction; that
+historical asset remains recoverable through Git history.
+
+## Trademark boundary
+
+NVIDIA, DGX, DGX Spark, DeepSeek, and their associated marks belong to their
+respective owners. Their names and the generated visual identifiers are used
+only to describe the independently run system and model. No endorsement,
+partnership, or official benchmark status is claimed.
