@@ -5,80 +5,72 @@
 | Field | Value |
 |---|---|
 | Path | `media/deepseek-v4-flash-0731-dgx-spark-cluster-hero.jpg` |
-| Generator | Grok image generation through the Grok chat interface |
-| Attribution | [Created with Grok](https://x.ai/legal/brand-guidelines) |
+| Production method | Deterministic HTML/CSS composition captured from a local browser |
 | Generated | 2026-08-01 UTC |
-| Dimensions | 1,248 x 832 pixels |
+| Dimensions | 1,264 x 712 pixels |
 | Format | JPEG, sRGB |
-| File size | 237,300 bytes |
-| SHA-256 | `b71298f90d391eeb8ddeebc0196c246260effde7f5eda577639647e8e4bcbb66` |
-| Relationship | Original generated JPEG bytes; not resized, cropped, or recompressed |
-| Embedded provenance | C2PA manifest markers identify `Grok Imagine`, `trainedAlgorithmicMedia`, and `SpaceXAI`; the original metadata is preserved byte-for-byte |
+| File size | 72,979 bytes |
+| SHA-256 | `2227ed358965aec6935572f24a79cdaa4b902e54fcd03a7688652a0b4c0ed641` |
+| Relationship | Original browser-capture bytes; not resized or recompressed after capture |
 
-The account-scoped generation URL is intentionally not published. The hash
-above anchors the exact bytes in this repository.
+This revision contains no AI-generated hardware. The Spark visible in the
+photographic panel comes from an official NVIDIA product photograph. The eight
+nodes in the four pair cards are intentionally abstract schematic symbols, not
+computer renderings or photographs.
 
-A dedicated `c2patool` verifier was not available locally, so this record does
-not claim independent cryptographic validation of the embedded signature.
+## Embedded-source record
 
-## Visual-reference record
-
-The final image was grounded with official public references so the systems
-would read as DGX Sparks rather than generic computers. The references were
-used only as visual inputs and are not redistributed in this repository.
-
-| Reference | Public source | Downloaded reference SHA-256 | Relationship to final image |
+| Source | Public origin | Downloaded source SHA-256 | Use in the final graphic |
 |---|---|---|---|
-| NVIDIA DGX Spark product photography | [NVIDIA Local AI](https://developer.nvidia.com/local-ai) / [official image](https://developer.download.nvidia.com/images/local-ai/nvidia-dgx-spark-panels-ari.jpg) | `5d1ffa3ab5c6ce82e6890651a6af554b264b46c1f3cada4bcec82973c5d148c9` | Form-factor reference only; the source photograph is not included |
-| Device-only crop made from that NVIDIA image | Derived locally from the reference above | `f034b6153e20e36fba4c4af239225c4ad8e329bf0e0b6e248d10f8480d2723e7` | Prompt reference only; not included |
-| DeepSeek organization avatar | [Official DeepSeek GitHub organization](https://github.com/deepseek-ai) / [avatar image](https://avatars.githubusercontent.com/u/148330874?v=4) | `55e6e0c1ba0c453749211368b8a26e00f470b4ab696ce1fed539d70777d4aab1` | Identity reference only; the generated whale is not a copy of the avatar bytes |
+| NVIDIA DGX Spark product photograph | [Official DGX Spark product page](https://www.nvidia.com/en-us/products/workstations/dgx-spark/) / [direct official image](https://www.nvidia.com/content/dam/en-zz/Solutions/dgx-spark/DGX-Spark-og.jpg) | `e1ebbda8aa122a77e2d2bc150c02efa223c9ce328f8a9e7017ba734f86f9c6bc` | Full 1,200 x 630 source frame scaled into the photo panel; no subject crop, repainting, regeneration, or content replacement; visible `Courtesy of NVIDIA` attribution |
+| DeepSeek organization avatar | [Official DeepSeek GitHub organization](https://github.com/deepseek-ai) / [avatar image](https://avatars.githubusercontent.com/u/148330874?v=4) | `55e6e0c1ba0c453749211368b8a26e00f470b4ab696ce1fed539d70777d4aab1` | Full source image scaled into the identity tile; no redrawing or generated substitute |
 
-## Accepted generation path
+The source files are not separately redistributed in this repository. Their
+pixels appear only inside the flattened hero composite. The NVIDIA photograph
+and DeepSeek mark remain third-party material and are excluded from Gumbii
+Digital's reuse rights.
 
-The accepted image came from a bounded three-stage correction sequence in the
-same Grok conversation:
+## Composition record
 
-1. A hardware-only pass used the official NVIDIA device crop as the form-factor
-   reference and asked for eight compact, horizontal Spark-style systems in
-   four separated pairs.
-2. A count-only repair locked the composition to exactly eight systems, exactly
-   four two-system groups, and exactly one cyan link inside each pair.
-3. A branding-only pass preserved the accepted hardware and count while adding
-   the exact title, exact configuration line, and one whale emblem visually
-   grounded by the official DeepSeek organization avatar.
+The final layout was rendered at a fixed 1,264 x 712 viewport. It combines:
 
-The shared hard constraints were: no people, no room or location detail, no
-extra systems, no performance number, no record claim, no personal identifier,
-no extra text, and no watermark. The generator returned a 1,248 x 832 image.
-The repository makes no 16:9 claim, and the full image is used without cropping.
+1. the exact title `V4 FLASH 0731`;
+2. the exact configuration labels `8× DGX SPARK` and `4× TP=2`;
+3. the official NVIDIA product photograph in a visibly attributed panel;
+4. the official DeepSeek avatar in an identity tile; and
+5. four labeled schematic pair cards, each containing exactly two abstract
+   nodes connected by one `TP=2` link.
+
+No generative image model was used for this revision. HTML/CSS supplied only
+the background, typography, borders, and schematic pair shapes.
 
 ## Acceptance record
 
-- Exactly eight Spark-style systems arranged as four visible two-system groups:
-  pass.
-- One visible cyan connection inside each pair: pass.
-- Solid champagne-metal horizontal chassis, textured dark front, and twin tall
-  rounded front recesses derived from the official product reference: pass as
-  stylized identification, not as a photographic replica.
-- Exact title `DEEPSEEK V4 FLASH 0731`: pass.
-- Exact configuration line `8× DGX SPARK • 4× TP=2`: pass.
-- One blue whale emblem, generated from the official DeepSeek avatar reference:
-  pass as an identification motif, not as a byte-identical upstream logo asset.
-- No person, room detail, rack, extra device, performance figure, record claim,
-  personal identifier, account URL, or watermark: pass.
-- Suitable as conceptual repository artwork: pass.
+- An actual NVIDIA DGX Spark product photograph is visibly present: pass.
+- The photograph's Spark retains the official chassis, textured front, NVIDIA
+  identification, proportions, and product-photo lighting: pass.
+- Exactly four pair cards and eight abstract nodes communicate the cluster
+  structure without pretending to be additional hardware photographs: pass.
+- Exact model and configuration text: pass.
+- Official DeepSeek whale identity is visibly present: pass.
+- `Courtesy of NVIDIA` is visible beside the photo: pass.
+- No person, private room detail, rack photograph, host label, address,
+  performance figure, record claim, personal identifier, account URL, or
+  watermark: pass.
+- Suitable as a repository hero and configuration summary: pass.
 - Suitable as physical-topology or benchmark evidence: no; explicitly out of
   scope.
 
-Drafts with six tower-like systems, four oversized systems, a distorted animal
-mark, or corrupted subtitle text were rejected and are not included in the
-public tree. The previous public hero at commit `e9ea41a` was superseded because
-its generic low-profile chassis were not a defensible DGX Spark depiction; that
-historical asset remains recoverable through Git history.
+The generated-hardware hero published at commit `f745a17` was superseded after
+visual review found that its chassis were not actual DGX Spark photographs.
+That historical asset remains recoverable through Git history but is no longer
+in the current publication tree.
 
-## Trademark boundary
+## Rights and trademark boundary
 
-NVIDIA, DGX, DGX Spark, DeepSeek, and their associated marks belong to their
-respective owners. Their names and the generated visual identifiers are used
-only to describe the independently run system and model. No endorsement,
+The NVIDIA photograph is used for editorial product identification in this
+independent engineering record and is visibly attributed. Refer to
+[NVIDIA's terms](https://www.nvidia.com/en-us/about-nvidia/terms-of-service/)
+for rights governing the source photograph. NVIDIA, DGX, DGX Spark, DeepSeek,
+and their associated marks belong to their respective owners. No endorsement,
 partnership, or official benchmark status is claimed.

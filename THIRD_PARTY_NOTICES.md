@@ -10,20 +10,25 @@ serving engine, comparison client, or container image.
 | vLLM serving benchmark | deployed build's `vllm bench serve` interface | [Official documentation](https://docs.vllm.ai/en/stable/cli/bench/serve/) | Same vLLM terms |
 | llama-benchy | `e9be344578cec17745066b220798b80a0d2686d3` | [Pinned source commit](https://github.com/eugr/llama-benchy/commit/e9be344578cec17745066b220798b80a0d2686d3) | [MIT](https://github.com/eugr/llama-benchy/blob/e9be344578cec17745066b220798b80a0d2686d3/LICENSE) |
 
-The repository hero image was generated through Grok Imagine and is labeled
-“Created with Grok” in accordance with the
-[xAI Brand Guidelines](https://x.ai/legal/brand-guidelines). The image is
-conceptual artwork and is not used as benchmark or physical-topology evidence.
-Its stylized DGX Spark form factor was visually grounded with official
-[NVIDIA product photography](https://developer.nvidia.com/local-ai), and its
-generated whale emblem was visually grounded with the official
-[DeepSeek GitHub organization avatar](https://github.com/deepseek-ai). Neither
-upstream reference asset is redistributed here, and the generated emblem is not
-a byte-identical copy of the upstream avatar.
+The repository hero is a deterministic photo-and-diagram composite, not a
+generated hardware scene. It embeds the complete frame of an official
+[NVIDIA DGX Spark product photograph](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)
+from this [direct NVIDIA asset](https://www.nvidia.com/content/dam/en-zz/Solutions/dgx-spark/DGX-Spark-og.jpg).
+The source frame is scaled inside the composition without a subject crop,
+repainting, regeneration, or content replacement, and the graphic visibly says
+`Courtesy of NVIDIA`. The NVIDIA photograph remains NVIDIA copyright and is
+not licensed under Gumbii Digital's repository terms; use of the source material
+is subject to [NVIDIA's terms](https://www.nvidia.com/en-us/about-nvidia/terms-of-service/).
+
+The hero also embeds the complete official
+[DeepSeek GitHub organization avatar](https://github.com/deepseek-ai) as its
+model-identity tile. That mark remains DeepSeek property and is likewise
+excluded from Gumbii Digital's reuse rights. The four two-node pair cards are
+original schematic shapes and are not presented as product photographs.
 
 NVIDIA, DGX, DGX Spark, DeepSeek, and their associated marks belong to their
-respective owners. Names, stylized product identification, and the generated
-whale motif are used only to identify the independently tested hardware and
+respective owners. Names, the product photograph, and the DeepSeek identity
+mark are used only to identify the independently tested hardware and
 model. No endorsement, partnership, or official benchmark status is implied.
 
 The tested container is identified in [run-identity.json](data/run-identity.json)
