@@ -1,9 +1,10 @@
 # DeepSeek V4 Flash 0731 on Eight DGX Sparks
 
-![Conceptual view of eight compute nodes operating as four paired replicas](media/deepseek-v4-flash-0731-dgx-spark-cluster-hero.jpg)
+![Stylized hero view of eight DGX Spark systems grouped as four tensor-parallel pairs](media/deepseek-v4-flash-0731-dgx-spark-cluster-hero.jpg)
 
 *[Created with Grok](https://x.ai/legal/brand-guidelines). Conceptual artwork;
-this is not a photograph or a topology diagram of the live cluster.*
+the hardware is stylized, and this is not a photograph or topology diagram of
+the live cluster.*
 
 I loaded `deepseek-ai/DeepSeek-V4-Flash-0731` across all eight of my NVIDIA
 DGX Spark systems. One replica needs two Sparks, so I split the cluster into

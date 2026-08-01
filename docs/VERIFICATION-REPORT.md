@@ -1,6 +1,6 @@
 # Publication verification report
 
-Verification timestamp: `2026-08-01T03:35:33Z`
+Verification timestamp: `2026-08-01T03:51:18Z`
 
 ## Result
 
@@ -22,7 +22,7 @@ report.
 | JSON parse | Pass | All public JSON documents parsed successfully |
 | Local links | Pass | All repository-relative Markdown targets resolved |
 | Symbolic links | Pass | None present in the publication tree |
-| Graphic | Pass | Original 1,168 x 784 Grok JPEG reviewed; exactly eight nodes; no text, logos, people, or environment detail |
+| Graphic | Pass | Original 1,248 x 832 Grok JPEG reviewed; exactly eight low-profile systems in four pairs; exact two-line title; no extra device, person, room detail, rack, loose cable, performance figure, record claim, personal identifier, or watermark |
 | Graphic provenance | Pass with boundary | Original bytes and embedded C2PA markers preserved; dedicated signature validation not run because `c2patool` was unavailable |
 | External links | Pass with warning | Eight references returned HTTP 200 through the system client; the xAI brand-guideline page rendered through a browser but returned HTTP 403 to the unauthenticated command-line probe |
 | PDF gates | Not applicable | This repository contains no PDFs |
