@@ -1,0 +1,120 @@
+{
+  "overall": {
+    "client_observed_completion_tokens_exactly_128": 179,
+    "client_observed_completion_tokens_maximum": 128,
+    "client_observed_completion_tokens_mean": 127.7,
+    "client_observed_completion_tokens_minimum": 125,
+    "client_observed_completion_tokens_not_128": 61,
+    "disclosure": "tg128 was requested with exact-tg; client-observed completion counts were 125-128, and throughput used observed token timestamps",
+    "errors": 0,
+    "measured_requests": 240,
+    "requested_output_tokens": 128
+  },
+  "pairs": {
+    "A": {
+      "client_observed_completion_tokens": {
+        "distribution": {
+          "126": 3,
+          "127": 15,
+          "128": 42
+        },
+        "maximum": 128,
+        "mean": 127.65,
+        "minimum": 126
+      },
+      "errors": 0,
+      "measured_requests": 60,
+      "requested_output_tokens": 128,
+      "server_observed_prompt_token_distribution": {
+        "2048": 15,
+        "6144": 15,
+        "18432": 15,
+        "34816": 15
+      }
+    },
+    "B": {
+      "client_observed_completion_tokens": {
+        "distribution": {
+          "125": 1,
+          "126": 2,
+          "127": 15,
+          "128": 42
+        },
+        "maximum": 128,
+        "mean": 127.63333333333334,
+        "minimum": 125
+      },
+      "errors": 0,
+      "measured_requests": 60,
+      "requested_output_tokens": 128,
+      "server_observed_prompt_token_distribution": {
+        "2048": 15,
+        "6144": 15,
+        "18432": 15,
+        "34816": 15
+      }
+    },
+    "C": {
+      "client_observed_completion_tokens": {
+        "distribution": {
+          "126": 2,
+          "127": 9,
+          "128": 49
+        },
+        "maximum": 128,
+        "mean": 127.78333333333333,
+        "minimum": 126
+      },
+      "errors": 0,
+      "measured_requests": 60,
+      "requested_output_tokens": 128,
+      "server_observed_prompt_token_distribution": {
+        "2048": 15,
+        "6144": 15,
+        "18432": 15,
+        "34816": 15
+      }
+    },
+    "D": {
+      "client_observed_completion_tokens": {
+        "distribution": {
+          "126": 2,
+          "127": 12,
+          "128": 46
+        },
+        "maximum": 128,
+        "mean": 127.73333333333333,
+        "minimum": 126
+      },
+      "errors": 0,
+      "measured_requests": 60,
+      "requested_output_tokens": 128,
+      "server_observed_prompt_token_distribution": {
+        "2048": 15,
+        "6144": 15,
+        "18432": 15,
+        "34816": 15
+      }
+    }
+  },
+  "requested_shape": {
+    "cache_policy": "no-cache",
+    "concurrency": [
+      1,
+      4
+    ],
+    "depths": [
+      0,
+      4096,
+      16384,
+      32768
+    ],
+    "exact_tg_flag": true,
+    "excluded_warmups": 1,
+    "latency_mode": "api",
+    "measured_runs": 3,
+    "pp": 2048,
+    "tg": 128
+  },
+  "schema_version": 1
+}

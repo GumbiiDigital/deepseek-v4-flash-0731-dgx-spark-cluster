@@ -1,0 +1,38 @@
+{
+  "full_campaign": {
+    "collector_samples": 409,
+    "container_lifecycle_identity_changes": 0,
+    "first_sample_utc": "2026-08-01T01:37:08Z",
+    "last_sample_utc": "2026-08-01T02:11:11Z",
+    "maximum_swap_used_kib": 0,
+    "minimum_available_memory_pct": 6.019,
+    "minimum_healthy_devices": 7,
+    "monitored_devices": 8,
+    "non_full_health_samples": 1,
+    "oom_records": 0,
+    "software_or_hardware_thermal_slowdown_records": 0
+  },
+  "official_measured_lane": {
+    "maximum_gpu_temperature_c": 79.0,
+    "minimum_gpu_tlimit_margin_c": 10.0,
+    "minimum_healthy_count": 8,
+    "non_8_healthy_sample_count": 0,
+    "sample_count": 158,
+    "slowdown_record_count": 0
+  },
+  "public_measured_request_windows": {
+    "collector_sample_count": 133,
+    "minimum_gpu_tlimit_margin_c": 6.0,
+    "minimum_healthy_count": 8,
+    "non_8_healthy_sample_count": 0,
+    "request_interval_count": 240,
+    "slowdown_record_count": 0
+  },
+  "retained_idle_exception": {
+    "context": "inter-condition idle cooldown, outside a measured request window",
+    "minimum_gpu_tlimit_margin_c": 5.0,
+    "sample_utc": "2026-08-01T02:01:25Z"
+  },
+  "schema_version": 1,
+  "thermal_metric_definition": "GPU T.Limit margin is remaining margin to the device limit, not absolute temperature"
+}
