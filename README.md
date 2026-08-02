@@ -1,11 +1,13 @@
 # DeepSeek V4 Flash 0731 on Eight DGX Sparks
 
-![Photo-based DeepSeek V4 Flash hero with an official NVIDIA DGX Spark photograph and four TP=2 pair cards](media/deepseek-v4-flash-0731-dgx-spark-cluster-hero.jpg)
+![Eight official NVIDIA DGX Spark product-photo crops arranged in four connected TP=2 pairs](media/deepseek-v4-flash-0731-dgx-spark-cluster-hero.jpg)
 
-*Photo-based composite. The embedded DGX Spark product photograph is
-[courtesy of NVIDIA](https://www.nvidia.com/en-us/products/workstations/dgx-spark/),
-and the whale comes from DeepSeek's official GitHub avatar. The four TP=2 pair
-cards are a schematic, not a photograph or live topology diagram.*
+*Photo-based cluster graphic. It uses an official NVIDIA DGX Spark product-photo
+crop, repeated eight times as a visual depiction of four two-Spark pairs, with
+simple connectors between each pair. There is no desktop or monitor in the
+graphic. The source is [courtesy of NVIDIA](https://www.nvidia.com/en-us/products/workstations/dgx-spark/),
+and the whale comes from DeepSeek's official GitHub avatar. This is a visual
+summary, not physical-topology evidence.*
 
 I loaded `deepseek-ai/DeepSeek-V4-Flash-0731` across all eight of my NVIDIA
 DGX Spark systems. One replica needs two Sparks, so I split the cluster into

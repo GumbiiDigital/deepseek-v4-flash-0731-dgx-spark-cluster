@@ -1,6 +1,6 @@
 # Publication verification report
 
-Verification timestamp: `2026-08-01T16:02:36Z`
+Verification timestamp: `2026-08-02T03:40:52Z`
 
 ## Result
 
@@ -22,8 +22,8 @@ report.
 | JSON parse | Pass | All public JSON documents parsed successfully |
 | Local links | Pass | All repository-relative Markdown targets resolved |
 | Symbolic links | Pass | None present in the publication tree |
-| Graphic | Pass | Original 1,264 x 712 browser-capture JPEG reviewed; a complete official NVIDIA DGX Spark product-photo frame and official DeepSeek avatar are visibly present; four pair cards contain exactly eight abstract nodes and four `TP=2` links; exact model and configuration text; visible `Courtesy of NVIDIA`; no person, private room detail, rack photo, host label, address, performance figure, record claim, personal identifier, account URL, or watermark |
-| Graphic provenance | Pass with boundary | No AI-generated hardware; official NVIDIA photograph and DeepSeek avatar source URLs and downloaded-byte hashes recorded; the photo is scaled as a full frame without subject crop or regeneration; third-party pixels and marks remain excluded from Gumbii Digital reuse rights; pair cards are explicitly schematic rather than physical-topology evidence |
+| Graphic | Pass | Original 1,264 x 712 browser-capture JPEG reviewed; eight visible crops of the official NVIDIA DGX Spark product photograph and the official DeepSeek avatar are present; four rows contain exactly two Spark crops each with four `TP=2` links; no desktop or monitor; exact model and configuration text; visible `Courtesy of NVIDIA`; no person, private room detail, rack photo, host label, address, performance figure, record claim, personal identifier, account URL, or watermark |
+| Graphic provenance | Pass with boundary | No AI-generated hardware; official NVIDIA photograph and DeepSeek avatar source URLs and downloaded-byte hashes recorded; the Spark crop uses source coordinates `x=775,y=420,w=320,h=200` and is repeated eight times for visual clarity; third-party pixels and marks remain excluded from Gumbii Digital reuse rights; the repeated crops and connectors are explicitly visual-summary elements rather than physical-topology, inventory, or benchmark evidence |
 | External links | Pass | Thirteen unique references returned HTTP 200 through the system client |
 | PDF gates | Not applicable | This repository contains no PDFs |
 | Reuse terms | Pass | Public but not open source; all-rights-reserved terms recorded in `COPYRIGHT.md` |
