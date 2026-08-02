@@ -23,7 +23,7 @@
       ]
     }
   },
-  "headline_scope": "baseline, not a record claim",
+  "headline_scope": "starting profile, not a record claim",
   "integrity": {
     "all_output_tokens_exactly_128": true,
     "all_server_observed_input_tokens_exactly_2048": true,

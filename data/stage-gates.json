@@ -6,14 +6,14 @@
       "collector_counter_advanced": true,
       "errors": 0,
       "pass": true,
-      "stage": "baseline_end"
+      "stage": "starting_profile_end"
     },
     {
       "checked_utc": "2026-08-01T01:38:22Z",
       "collector_counter_advanced": true,
       "errors": 0,
       "pass": true,
-      "stage": "baseline_start"
+      "stage": "starting_profile_start"
     },
     {
       "checked_utc": "2026-08-01T01:41:32Z",

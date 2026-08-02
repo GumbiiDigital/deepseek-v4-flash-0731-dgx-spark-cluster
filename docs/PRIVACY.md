@@ -28,8 +28,9 @@ still treated as private.
 - aggregate health and telemetry facts;
 - exact upstream revisions and non-personal content hashes;
 - an integrity hash for the sealed private archive;
-- deterministic scripts that recompute and verify the claims.
+- deterministic scripts that recompute and verify the claims;
 - sanitized agent-run summaries and hashes;
+- run-level and group-level replication statistics with anonymous pair labels;
 - live-wall stills with anonymous pair/cell labels and bounded output snippets
   from the synthetic offline showcase corpus.
 
@@ -46,3 +47,11 @@ personal and infrastructure details before publication. The visible task
 content is limited to bounded snippets produced from the synthetic offline
 showcase corpus; full responses, prompts, event ledgers, raw films, host data,
 and network data remain private.
+
+The six-run replication record is built from an explicit allowlist. It omits
+campaign identifiers, run identifiers, aliases, hostnames, commands, private
+addresses, paths, raw event ledgers, generated text, and per-host samples. It
+publishes anonymous run labels, aggregate timing/token/queue/safety values,
+normalized runtime-identity hashes, and receipt hashes. Those hashes bind the
+public arithmetic to retained private receipts; they do not make the private
+receipts public.

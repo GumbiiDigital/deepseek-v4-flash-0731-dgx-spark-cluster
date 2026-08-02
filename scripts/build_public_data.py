@@ -250,7 +250,7 @@ def official_data(run_dir: Path, contract: dict[str, Any]) -> tuple[dict[str, An
     }
     aggregate_export = {
         "schema_version": 1,
-        "headline_scope": "baseline, not a record claim",
+        "headline_scope": "starting profile, not a record claim",
         "pairs": pairs,
         "cross_pair": cross_pair,
         "integrity": {
@@ -408,7 +408,10 @@ def gate_data(run_dir: Path) -> dict[str, Any]:
         source = read_json(path)
         gates.append(
             {
-                "stage": source["stage"],
+                "stage": {
+                    "baseline_start": "starting_profile_start",
+                    "baseline_end": "starting_profile_end",
+                }.get(source["stage"], source["stage"]),
                 "checked_utc": source["checked_utc"],
                 "collector_counter_advanced": source["counter_after"] > source["counter_before"],
                 "errors": len(source["errors"]),
@@ -492,7 +495,7 @@ def main() -> int:
         data_root / "run-identity.json",
         {
             "schema_version": 1,
-            "claim_scope": "pre-optimization baseline, not a record claim",
+            "claim_scope": "frozen pre-optimization starting profile, not a record claim",
             "private_evidence_anchor": {
                 "run_id": "20260801T013700Z",
                 "sealed_manifest_entries": private_entries,

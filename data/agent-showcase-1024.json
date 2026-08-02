@@ -60,6 +60,7 @@
   "receipt_findings": {
     "marker_format_mismatches": 4,
     "semantic_failures": 0,
+    "semantic_failure_field_definition": "HTTP status, expected-model identity, and nonempty-response validation; not a model-quality or full instruction-following score",
     "workflow_failures": 0
   },
   "delivery": {

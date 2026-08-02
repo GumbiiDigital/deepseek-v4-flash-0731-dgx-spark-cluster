@@ -1,17 +1,94 @@
-# Watching 1,024 agent workflows hit DeepSeek V4 Flash at once
+# DeepSeek V4 Flash agent concurrency: live wall and six-run replication
+
+This record contains two different things, and I keep them separate:
+
+1. original 512- and 1,024-workflow runs captured on a real tmux wall; and
+2. a later six-run replacement campaign used to test whether the first timing
+   comparison held up.
+
+The tmux media shows the original runs. It is not footage of the six-run
+replication.
+
+## Six-run replacement campaign
+
+I did not trust the first one-off comparison enough to put it on X as a general
+result. Before collecting the replacement data, I froze the order
+`512, 1024, 1024, 512, 512, 1024` and kept the model, runner, synthetic task
+corpus, four-pair topology, 16-sequence engine ceiling, and safety gates fixed.
+
+The experimental unit is one complete four-pair campaign. Individual agents
+inside a campaign are not independent replicates. This is `n=3` per load and a
+descriptive replication only; I do not report a confidence interval or
+p-value.
+
+![Verified six-run 512 versus 1,024 workflow comparison](../media/agent-showcase/replicated-512-vs-1024.jpg)
+
+### Run-level results
+
+| Run | Load | Completed workflows | Model calls | Workflow median | Active span | Marker findings | Peak C | Minimum available memory |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| R01 | 512 | 512 / 512 | 1,536 / 1,536 | 373.799 s | 438.905 s | 2 | 82 | 5.988% |
+| R02 | 1,024 | 1,024 / 1,024 | 3,072 / 3,072 | 742.065 s | 878.320 s | 3 | 83 | 5.884% |
+| R03 | 1,024 | 1,024 / 1,024 | 3,072 / 3,072 | 745.353 s | 876.763 s | 5 | 81 | 6.043% |
+| R04 | 512 | 512 / 512 | 1,536 / 1,536 | 377.733 s | 443.005 s | 1 | 81 | 5.902% |
+| R05 | 512 | 512 / 512 | 1,536 / 1,536 | 373.914 s | 439.067 s | 1 | 83 | 5.960% |
+| R06 | 1,024 | 1,024 / 1,024 | 3,072 / 3,072 | 742.378 s | 877.937 s | 8 | 84 | 5.937% |
+
+Every run passed its workload, collector, before/after probe, runtime-identity,
+service-identity, OOM, swap, and thermal-slowdown gates. Across all six runs,
+4,608 workflows and 13,824 model calls completed with zero failed workflows.
+
+### Group comparison
+
+| Metric | 512 workflows | 1,024 workflows | Ratio |
+|---|---:|---:|---:|
+| Median of run-level workflow medians | 373.914 s | 742.378 s | 1.985424x |
+| Run-level median range | 373.799–377.733 s | 742.065–745.353 s | — |
+| Run-level median sample SD | 2.239 s | 1.815 s | — |
+| Run-level median CV | 0.596810% | 0.244165% | — |
+| Median active span | 439.067 s | 877.937 s | 1.999551x |
+| Median completion-token rate | 218.690 tok/s | 219.247 tok/s | 1.002549x |
+
+Under this fixed saturated contract, doubling the client workflows nearly
+doubled workflow duration and active span while measured completion-token rate
+stayed nearly flat. The 1,024 runs did not create 1,024 simultaneous decodes:
+the four engines ran up to 16 model sequences and queued up to 1,008 requests.
+
+Active span compares event epochs collected across hosts. Observed absolute
+clock skew was at most two seconds, so the 1.999551x span ratio should not be
+read beyond that timing uncertainty. The workflow-duration result is computed
+per workflow from epochs on the same pair runner.
+
+Twenty outputs missed the unique marker gate. All were HTTP 200,
+expected-model, nonempty responses; they do not support a perfect
+instruction-following or model-quality claim.
+
+### Failure disposition
+
+- One pre-work attempt failed on a Python import before a workload run or model
+  request began. It is not an experimental unit.
+- A later campaign completed one 512 run, then a live collector SSH probe
+  failed during its second run. The frozen gate stopped the runners. I excluded
+  that whole campaign, including its clean first run.
+- The replacement campaign used LAN control plus a 60-sample continuity soak
+  and a new immutable campaign identifier. No run inside it was retried or
+  excluded.
+
+The sanitized record is
+[`agent-showcase-replication.json`](../data/agent-showcase-replication.json).
+Run `python3 scripts/recompute_replication.py` from the repository root to
+rebuild both group summaries and ratios from its run-level values.
+
+## Original tmux-wall showcase
 
 I wanted something more honest than a dashboard animation. I wanted to see the
-work happen.
-
-I started with 512 distinct agent workflows against the four DeepSeek V4 Flash
-replicas already running across my eight DGX Sparks. Then I doubled it to
-1,024. Every workflow had three model-backed stages: `PLAN`, `BUILD`, and
-`CHECK`. I put every labeled agent cell on one tmux wall and captured the real
-pane buffers while both runs were in flight.
+work happen. I started with 512 workflows, doubled it to 1,024, and put every
+labeled cell on one tmux wall while the original runs were live. Every workflow
+had three serial model-backed stages: `PLAN`, `BUILD`, and `CHECK`.
 
 ![All 1,024 labeled workflows visible during live inference](../media/agent-showcase/1024-agent-live-wall.jpg)
 
-## The 1,024-workflow run
+## The original 1,024-workflow visual run
 
 | Measured result | Value |
 |---|---:|
@@ -36,7 +113,7 @@ configured for four model sequences each, so 16 sequences could decode at
 once. The other requests waited inside the model queues. This is 1,024
 concurrent agent workflows, not 1,024 simultaneous decoding streams.
 
-## What changed when I doubled it
+## What changed in the original one-off comparison
 
 | Measured result | 512 workflows | 1,024 workflows | Change |
 |---|---:|---:|---:|
@@ -90,7 +167,7 @@ movie.
 
 ![All 1,024 workflows in the completed state](../media/agent-showcase/1024-agent-live-wall-final.jpg)
 
-## The first 512-workflow run
+## The original 512-workflow visual run
 
 The first fresh live run also completed cleanly:
 
@@ -111,18 +188,24 @@ of the 665 corrected source frames and each of the 300 selected edit frames.
 
 ## Verification boundary
 
-Both campaigns were fresh live inference runs, not replays of sealed receipts.
+Both original visual campaigns were fresh live inference runs, not replays of
+sealed receipts.
 Each capture is hash-bound to its run contract, summary, event ledger, and
 before/after runtime-identity receipts.
 
 The prompts were synthetic offline tasks. The inference, queueing, model
 responses, concurrency, telemetry, and completion receipts were real.
 
-The 1,024-workflow run recorded four PLAN marker-format mismatches. The
+The 1,024-workflow run recorded four task-receipt marker mismatches. The
 512-workflow run recorded three. All seven responses were HTTP 200, came from
-the expected model, contained nonempty uniquely hashed output, and passed the
-semantic receipt check. The recorded campaign contract reports marker
-formatting as a note rather than a failed workflow.
+the expected model, and contained nonempty individually hashed output, but they
+did **not** satisfy the unique marker gate. The frozen acceptance contract
+reported that finding without failing the workflow.
+
+That distinction defines the claim: “completed workflow” means the harness
+received all three expected-model responses and reached its terminal state. It
+does not mean every response passed instruction-following or model-quality
+evaluation. This showcase does not make either claim.
 
 The sanitized numeric records are in
 [`agent-showcase-512.json`](../data/agent-showcase-512.json) and

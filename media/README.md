@@ -69,6 +69,21 @@ visual review found that its chassis were not actual DGX Spark photographs.
 That historical asset remains recoverable through Git history but is no longer
 in the current publication tree.
 
+## Six-run comparison graphic
+
+The separate [`agent-showcase/replicated-512-vs-1024.jpg`](agent-showcase/replicated-512-vs-1024.jpg)
+is a 1,600 x 900 evidence-derived comparison, SHA-256
+`223066e5e352a026660b331e4a75fa3f8b019ef319f8de66bce29b07d9bec93f`.
+Its hardware and identity tiles use the same official NVIDIA crop and DeepSeek
+avatar described above. Its values come only from the independently verified
+public six-run JSON.
+
+Grok generated the abstract cyan light/whale background. The accepted source
+hash is `8525ec39f79b2b040f02e36424240c2c014b6c549903494750a6cbb9939f0ee6`.
+It is used at reduced opacity and contributes no hardware, topology, mark,
+label, or measurement. Full source and render hashes are recorded in the
+[agent-showcase media record](agent-showcase/README.md).
+
 ## Rights and trademark boundary
 
 The NVIDIA photograph is used for editorial product identification in this

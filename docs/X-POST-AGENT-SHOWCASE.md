@@ -1,60 +1,115 @@
-# X post: 1,024 live agent workflows
+# X post: six-run DeepSeek V4 Flash agent-concurrency replication
 
 ## Recommended post
 
-Okay, this got ridiculous.
+Okay, the first result looked too clean, so I did not believe it.
 
-I pushed DeepSeek V4 Flash to 1,024 concurrent agent workflows across eight DGX Sparks—and put every agent on one live tmux wall.
+I froze six fresh DeepSeek V4 Flash campaigns across eight DGX Sparks:
 
-1,024/1,024 finished. 3,072/3,072 model calls. 0 failed workflows.
+512, 1024, 1024, 512, 512, 1024.
 
-Real inference. Synthetic tasks. Receipts below.
+2x the workflows produced:
+
+- 1.985424x median workflow time
+- 1.999551x median active span
+- 1.002549x completion-token rate
+
+4,608/4,608 workflows. 13,824/13,824 live model calls. Zero failed workflows.
+
+Method, failures, sanitized data, and recomputation code:
+https://github.com/GumbiiDigital/deepseek-v4-flash-0731-dgx-spark-cluster
 
 ## Suggested follow-up thread
 
 **Post 2**
 
-The important distinction: this is 1,024 concurrent agent workflows, not 1,024 simultaneous decoding streams.
+The experimental unit is one complete four-pair campaign—not every agent
+inside it. That gives n=3 per load.
 
-All 1,024 client requests were in flight. The four vLLM replicas decoded 16 model sequences at once and queued up to 1,008 requests.
+Median workflow time across the three runs:
+
+- 512: 373.914s (range 373.799–377.733)
+- 1,024: 742.378s (range 742.065–745.353)
+
+No confidence interval. No universal scaling claim.
 
 **Post 3**
 
-I ran the same harness at 512 first, then doubled it.
+Why the result makes sense:
 
-- event span: 463.975s → 893.526s
-- median TTFT: 134.367s → 272.317s
-- peak GPU temperature: 81 C → 83 C
-- failed workflows: 0 → 0
+The four TP=2 engines stayed capped at 16 simultaneous model sequences.
 
-The fixed 16-sequence ceiling stayed unchanged, so the queue and latency roughly doubled.
+At the application layer I had 512 or 1,024 client workflows in flight. The
+engine queues reached 496 or 1,008 waiting requests.
+
+Double the queued work behind the same saturated capacity; nearly double the
+time; nearly flat token rate.
 
 **Post 4**
 
-I wanted to show the actual work, not animate a dashboard after the fact.
+The ugly parts are in the receipts too.
 
-Every cell is one labeled workflow moving through PLAN → BUILD → CHECK → DONE. The final 60-second edit is built from the captured tmux pane buffers and keeps all 1,024 cells visible.
+- one pre-work import failure before any model call;
+- one later campaign stopped by the frozen collector gate and excluded as a
+  whole—even its clean first run;
+- 20 outputs in the final six runs missed the unique marker gate.
+
+“Completed” means transport/orchestration completion, not perfect instruction
+following or model quality.
 
 **Post 5**
 
-The prompts were synthetic. The inference, queueing, model responses, telemetry, and completion receipts were real.
+I used LAN control and pair-head loopback inference. Before the replacement
+campaign, the fleet passed a 60-sample continuity soak. Every run then had to
+pass two cooldown samples plus 8/8 health, identity, probe, queue, swap, OOM,
+memory, and thermal gates.
 
-This is a concurrency/observability demo—not a speed record or an “1,024 simultaneous decodes” claim.
+No retries or exclusions inside the eligible six-run campaign.
 
-Method + sanitized evidence:
-https://github.com/GumbiiDigital/deepseek-v4-flash-0731-dgx-spark-cluster
+**Post 6**
+
+Important boundary: this is 1,024 concurrent client workflows—not 1,024
+simultaneous decoding streams.
+
+The observed engine high-water mark was 16 running and 1,008 waiting.
+
+This is a descriptive replication under one fixed contract. It is not a speed
+record, vendor benchmark, model-quality score, or universal hardware law.
+
+**Post 7**
+
+The old tmux wall shows the original live 1,024-workflow run. It is not footage
+of the six replacement campaigns.
+
+The new comparison graphic is built from the verified public JSON. Official
+DGX Spark photography and the DeepSeek avatar identify the hardware/model; the
+Grok whale/light background is decoration only.
+
+Recompute it yourself:
+
+```bash
+python3 scripts/recompute_replication.py
+python3 scripts/verify_public_bundle.py
+```
 
 ## Short version
 
-1,024 DeepSeek V4 Flash agent workflows on eight DGX Sparks. One live tmux wall.
+The first result looked too clean, so I ran six fresh campaigns.
 
-1,024/1,024 finished. 3,072/3,072 calls. 0 failed.
+DeepSeek V4 Flash on eight DGX Sparks:
 
-Real inference. Synthetic tasks.
+2x workflows → 1.985424x median workflow time, 1.999551x active span, 1.002549x
+completion-token rate.
+
+4,608/4,608 workflows. 13,824/13,824 calls. Zero failed.
+
+n=3 campaigns per load. Descriptive result, not a record claim.
+
 https://github.com/GumbiiDigital/deepseek-v4-flash-0731-dgx-spark-cluster
 
 ## Claim guardrail
 
-Use “1,024 concurrent agent workflows” or “1,024 client requests in flight.”
-Do not say “1,024 simultaneous decoding streams.” The observed model-engine
-high-water mark was 16 running sequences and 1,008 waiting requests.
+Use “1,024 concurrent client workflows” or “1,024 client requests in flight.”
+Do not say “1,024 simultaneous decoding streams.” Do not turn six campaign
+runs into thousands of independent replicates. Do not omit the 20 marker
+findings or the two retained failed-attempt disclosures.

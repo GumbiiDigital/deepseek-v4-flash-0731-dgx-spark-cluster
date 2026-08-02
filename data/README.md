@@ -12,9 +12,21 @@
 | `telemetry-summary.json` | Aggregate health, memory, lifecycle, thermal, and idle-exception facts |
 | `agent-showcase-512.json` | Sanitized counters, latency summaries, capture hashes, media properties, and findings for the fresh live 512-workflow run |
 | `agent-showcase-1024.json` | Sanitized counters, latency summaries, capture-filter disclosure, media hashes, and findings for the fresh live 1,024-workflow run |
+| `agent-showcase-replication.json` | Six-run replication record: three complete four-pair campaigns per load, run-level distributions, group summaries, excluded-attempt disclosures, and private-receipt hashes |
 
 No data file contains generated text, raw logs, commands, local paths, network
 addresses, SSH material, or per-host identifiers.
 
+In all three agent-showcase records, `semantic_failures` is the historical
+runner field for HTTP status, expected-model identity, and nonempty-response
+validation. It is not a model-quality or complete instruction-following score.
+The replication JSON carries that definition in its scope object. Marker-gate
+findings are reported separately and are not silently relabeled.
+
 Use [recompute_results.py](../scripts/recompute_results.py) to calculate every
 headline result directly from the public numeric records.
+
+Use [recompute_replication.py](../scripts/recompute_replication.py) to verify
+the frozen run order and eligibility gates, rebuild both group summaries from
+the six run-level records, and recompute the 1,024-over-512 ratios. It requires
+only Python's standard library.

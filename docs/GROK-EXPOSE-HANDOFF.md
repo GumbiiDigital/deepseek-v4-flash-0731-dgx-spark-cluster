@@ -12,30 +12,46 @@ have four matched starting points for the optimization work that follows.
 The interesting result is not a one-off peak. It is how closely the four pairs
 landed while running concurrently.
 
-There is now a second story in the same repository: fresh live 512- and
-1,024-workflow concurrency runs with every labeled workflow visible on a tmux
-wall. Lead with the 1,024 run if the piece is about the visual showcase.
+There is now a second story in the same repository: the original live tmux-wall
+showcase plus a separate six-run replacement campaign. Lead with the
+replication if the piece is about the timing result. Use the original wall only
+as original-run visual evidence, not as replication footage.
 
-## Agent showcase facts that can be used
+## Replication facts that can be used
 
-- Fresh live 1,024-workflow run: 1,024 / 1,024 workflows completed, zero failed.
-- Each workflow made three model-backed calls: PLAN, BUILD, and CHECK.
-- Requests completed: 3,072 / 3,072.
-- Maximum client requests in flight: 1,024.
-- Maximum model sequences running across the four replicas: 16.
-- Maximum model requests waiting: 1,008.
-- Event-ledger span: 893.526 seconds.
-- Median TTFT: 272.317 seconds; median end-to-end time: 275.761 seconds.
-- Peak GPU temperature: 83 C; zero thermal-gate failures in 186 samples.
-- Fresh live 512-workflow comparison: 512 / 512 workflows, 1,536 / 1,536
-  requests, zero failed, 463.975-second event span, 134.367-second median TTFT,
-  and 81 C peak GPU temperature.
-- Every one of the 1,024 cells is visible in all 1,857 corrected source frames
+- Six fresh live campaigns in frozen order: 512, 1024, 1024, 512, 512, 1024.
+- Experimental unit: one complete four-pair campaign; `n=3` per load.
+- Each workflow made three serial model-backed calls: PLAN, BUILD, and CHECK.
+- Total: 4,608 / 4,608 workflows and 13,824 / 13,824 model calls, zero failed
+  workflows.
+- Median of three run-level workflow medians: 373.914 seconds at 512 and
+  742.378 seconds at 1,024; ratio 1.985424x.
+- Median active span: 439.067 seconds at 512 and 877.937 seconds at 1,024;
+  ratio 1.999551x.
+- Median completion-token rate: 218.690 versus 219.247 tok/s; ratio 1.002549x.
+- Run-level workflow-median ranges: 373.799–377.733 seconds and
+  742.065–745.353 seconds.
+- Maximum engine state: 16 running sequences; 496 waiting at 512 and 1,008
+  waiting at 1,024.
+- All six runs passed fleet, probe, lifecycle, identity, OOM, swap, memory, and
+  thermal-slowdown gates.
+- Twenty unique-marker findings are disclosed. They are not model-quality
+  passes.
+- One pre-work import failure and one collector-interrupted campaign are
+  retained and excluded under the published rules.
+- LAN carried control/receipts; each runner called its pair-head inference API
+  through loopback.
+- No confidence interval or universal scaling claim is reported.
+
+## Original visual-run facts that can be used
+
+- The original 1,024 run completed 1,024 / 1,024 workflows and 3,072 / 3,072
+  calls with zero failed workflows.
+- Every one of its 1,024 cells is visible in all 1,857 corrected source frames
   and all 300 selected edit frames.
-- Fifteen incomplete tmux repaint frames were removed from the raw capture; no
-  synthetic or replayed frames were added.
-- The task corpus was synthetic and offline. The inference, queueing, outputs,
-  telemetry, and receipts were live.
+- Fifteen incomplete tmux repaint frames were removed; no synthetic or replayed
+  frames were added.
+- The original wall is not footage of the six-run replacement campaign.
 
 ## Facts that can be used
 
@@ -83,5 +99,8 @@ wall. Lead with the 1,024 run if the piece is about the visual showcase.
 - Do not call the showcase a record, intelligence evaluation, or general
   benchmark.
 
-The conceptual repository graphic is artwork generated with Grok Imagine. It
-is not evidence of the physical cluster or its wiring.
+The repository hero uses official NVIDIA DGX Spark photography and the official
+DeepSeek avatar; it contains no AI-generated hardware. The six-run comparison
+also uses those official identity sources. Grok generated only its abstract
+cyan whale/light background. That layer is decorative and contributes no
+hardware, topology, label, or measurement.

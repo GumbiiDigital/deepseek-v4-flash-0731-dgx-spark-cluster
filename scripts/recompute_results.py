@@ -116,7 +116,7 @@ def main() -> int:
         raise AssertionError("telemetry sample count failed")
     if telemetry["full_campaign"]["container_lifecycle_identity_changes"] != 0:
         raise AssertionError("container lifecycle identity changed during the run")
-    if identity["claim_scope"] != "pre-optimization baseline, not a record claim":
+    if identity["claim_scope"] != "frozen pre-optimization starting profile, not a record claim":
         raise AssertionError("claim scope is missing")
 
     c1 = aggregate["cross_pair"]["c1"]

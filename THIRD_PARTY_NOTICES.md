@@ -9,6 +9,7 @@ serving engine, comparison client, or container image.
 | vLLM | upstream commit `264bce1da81e27d638e7cf265b4cbd125d023c38` embedded in the tested custom build version | [Upstream source](https://github.com/vllm-project/vllm/tree/264bce1da81e27d638e7cf265b4cbd125d023c38) | [Apache-2.0](https://github.com/vllm-project/vllm/blob/264bce1da81e27d638e7cf265b4cbd125d023c38/LICENSE) |
 | vLLM serving benchmark | deployed build's `vllm bench serve` interface | [Official documentation](https://docs.vllm.ai/en/stable/cli/bench/serve/) | Same vLLM terms |
 | llama-benchy | `e9be344578cec17745066b220798b80a0d2686d3` | [Pinned source commit](https://github.com/eugr/llama-benchy/commit/e9be344578cec17745066b220798b80a0d2686d3) | [MIT](https://github.com/eugr/llama-benchy/blob/e9be344578cec17745066b220798b80a0d2686d3/LICENSE) |
+| NVIDIA DGX Spark | eight systems used as four two-system replicas | [Official hardware guide](https://docs.nvidia.com/dgx/dgx-spark/hardware.html) | NVIDIA documentation and product terms |
 
 The repository hero is a deterministic photo-and-connector composite, not a
 generated hardware scene. It embeds a crop of an official
@@ -27,6 +28,14 @@ model-identity tile. That mark remains DeepSeek property and is likewise
 excluded from Gumbii Digital's reuse rights. The pair connectors, labels, and
 layout are original composition elements; the repeated photo crops are not
 eight independent captures or physical-inventory evidence.
+
+The six-run comparison JPEG uses the same official NVIDIA crop and DeepSeek
+avatar. Its abstract cyan light/whale background was generated with Grok and
+is embedded only as a reduced-opacity decorative layer. The accepted source
+hash is `8525ec39f79b2b040f02e36424240c2c014b6c549903494750a6cbb9939f0ee6`.
+It contributes no hardware depiction, logo, topology, label, or numeric value.
+The run values and labels were rendered deterministically from the verified
+public JSON.
 
 NVIDIA, DGX, DGX Spark, DeepSeek, and their associated marks belong to their
 respective owners. Names, the product photograph, and the DeepSeek identity

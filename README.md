@@ -17,32 +17,61 @@ This repository is where I am keeping the whole project: the first frozen
 measurements, the exact method, the failures, the changes, and every
 optimization that earns its way into a new measured profile.
 
-The first result is a **pre-optimization baseline, not a record claim**. That
-distinction matters. I wanted a clean starting line before I began tuning the
-four pairs in different ways.
+The first result is a **frozen pre-optimization starting profile, not a record
+claim**. That distinction matters. I wanted a clean starting line before I
+began tuning the four pairs in different ways.
 
-## 1,024 live agent workflows on one tmux wall
+## I did not trust the first 512-to-1,024 result
 
-I also wanted to see how far I could push application-level concurrency and
-actually show the work. The fresh live 1,024-workflow run completed **1,024 of
-1,024 workflows**, **3,072 of 3,072 model requests**, and **zero failed
-workflows** across the same four TP=2 replicas.
+The first visual runs looked almost too neat: double the workflows and roughly
+double the time. I did not want to defend that from one run on X, so I froze a
+new six-run order before collecting the replacement result:
 
-![All 1,024 labeled agent workflows visible during live inference](media/agent-showcase/1024-agent-live-wall.jpg)
+```text
+512, 1024, 1024, 512, 512, 1024
+```
 
-All 1,024 client requests were in flight at the high-water mark. Inside the
-four vLLM replicas, 16 model sequences ran at once and up to 1,008 requests
-waited in the queues. Those are different layers of concurrency, and I keep
-them separate.
+All six were fresh live inference campaigns across the same four TP=2
+replicas. The experimental unit is one complete four-pair campaign—not each
+agent inside it. That gives `n=3` per load.
 
-The first 512-workflow run took 463.975 seconds across the event ledger. The
-1,024-workflow run took 893.526 seconds, or 1.93x as long, while the configured
-16-sequence ceiling stayed unchanged. Peak GPU temperature moved from 81 C to
-83 C, with no thermal-gate failures in either run.
+![Verified six-run 512 versus 1,024 workflow comparison](media/agent-showcase/replicated-512-vs-1024.jpg)
 
-See the full [agent concurrency showcase](docs/AGENT-CONCURRENCY-SHOWCASE.md)
-for the method, the 512-to-1,024 comparison, tmux-capture correction, exact
-limits, and media hashes.
+| Replicated result | 512 workflows | 1,024 workflows | 1,024 / 512 |
+|---|---:|---:|---:|
+| Median of three run-level workflow medians | 373.914 s | 742.378 s | 1.985424x |
+| Range of run-level workflow medians | 373.799–377.733 s | 742.065–745.353 s | — |
+| Run-level median CV | 0.596810% | 0.244165% | — |
+| Median active span | 439.067 s | 877.937 s | 1.999551x |
+| Median completion-token rate | 218.690 tok/s | 219.247 tok/s | 1.002549x |
+
+Across the six eligible campaigns, **4,608 of 4,608 workflows** and **13,824 of
+13,824 model calls** completed with zero failed workflows. The four engines
+still ran no more than 16 model sequences at once. The application-side
+high-water marks were 512 or 1,024 client workflows; the engine queues reached
+496 or 1,008 waiting requests.
+
+So yes: under this one fixed saturated setup, doubling the client workflows
+almost exactly doubled workflow time and active span while completion-token
+rate stayed nearly flat. That is a descriptive replication result. It is not a
+speed record, a confidence interval, a universal scaling law, or a claim that
+1,024 sequences decoded simultaneously.
+
+Twenty responses missed the unique marker gate. They were HTTP 200,
+expected-model, nonempty outputs, but I am not relabeling that as perfect
+instruction following. The public record also discloses a pre-work import
+failure and a later campaign that the frozen collector gate interrupted and
+excluded as a whole.
+
+The earlier tmux wall is still useful for showing the original live workflow
+motion:
+
+![All 1,024 labeled agent workflows visible during the original live run](media/agent-showcase/1024-agent-live-wall.jpg)
+
+It is not footage of the six replacement campaigns. See the full
+[agent concurrency record](docs/AGENT-CONCURRENCY-SHOWCASE.md) for the original
+visual-run evidence, the separate replication protocol, run-level values,
+failure disposition, exact limits, and media hashes.
 
 ## First measured profile
 
@@ -103,12 +132,14 @@ Only Python's standard library is required:
 
 ```bash
 python3 scripts/recompute_results.py
+python3 scripts/recompute_replication.py
 python3 scripts/verify_public_bundle.py
 ```
 
-The first command rebuilds every headline figure from the sanitized numeric
-runs. The second checks the publication manifest, JSON documents, local links,
-privacy rules, and symbolic-link boundary.
+The first command rebuilds the frozen serving-profile figures. The second
+rebuilds the six-run agent comparison from its run-level public record. The
+third checks the publication manifest, JSON documents, local links, privacy
+rules, and symbolic-link boundary.
 
 ## Repository map
 
@@ -121,7 +152,7 @@ privacy rules, and symbolic-link boundary.
 | [docs/VERIFICATION-REPORT.md](docs/VERIFICATION-REPORT.md) | Publication-gate receipt |
 | [docs/PRIVACY.md](docs/PRIVACY.md) | Sanitization method and private/public boundary |
 | [docs/GROK-EXPOSE-HANDOFF.md](docs/GROK-EXPOSE-HANDOFF.md) | Fact sheet and guardrails for the public write-up |
-| [docs/AGENT-CONCURRENCY-SHOWCASE.md](docs/AGENT-CONCURRENCY-SHOWCASE.md) | Fresh live 512- and 1,024-workflow tmux runs, comparison, and evidence boundary |
+| [docs/AGENT-CONCURRENCY-SHOWCASE.md](docs/AGENT-CONCURRENCY-SHOWCASE.md) | Original live tmux runs plus the separate six-run replacement campaign and evidence boundary |
 | [docs/X-POST-AGENT-SHOWCASE.md](docs/X-POST-AGENT-SHOWCASE.md) | X-ready post and thread copy |
 | [data/README.md](data/README.md) | Sanitized data dictionary |
 | [media/README.md](media/README.md) | Graphic provenance and acceptance record |
@@ -135,7 +166,7 @@ privacy rules, and symbolic-link boundary.
 - Two benchmark clients do not become equivalent because both report tokens
   per second.
 - A private route observation is not packet-capture proof.
-- A clean baseline is not a speed record.
+- A clean starting profile is not a speed record.
 - Unknown stays unknown. I do not turn it green for convenience.
 
 The custom runtime image is pinned by digest, but the image and build recipe

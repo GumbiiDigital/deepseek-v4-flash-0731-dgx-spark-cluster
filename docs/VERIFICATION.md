@@ -17,12 +17,21 @@ The public bundle permits a reader to verify:
 - every public file through the publication manifest;
 - sanitized counters, latency summaries, telemetry bounds, capture hashes, and
   media properties for the fresh live 512- and 1,024-workflow runs; and
-- the hashes of six live-wall still/contact-sheet assets.
+- the hashes of six live-wall still/contact-sheet assets;
+- the six-run replacement order and all six run-level records;
+- three campaign-level experimental units per load, with individual agents
+  explicitly marked non-independent;
+- 4,608 completed workflows, 13,824 completed model calls, zero failed
+  workflows, and 20 separately disclosed marker findings;
+- the group timing/rate distributions and all three 1,024-over-512 ratios;
+- the pre-work harness failure and interrupted-campaign disposition; and
+- the source and final hashes for the data-derived comparison graphic.
 
 Run:
 
 ```bash
 python3 scripts/recompute_results.py
+python3 scripts/recompute_replication.py
 python3 scripts/verify_public_bundle.py
 ```
 
@@ -61,6 +70,11 @@ including all 48 weight shards.
 - The private agent event ledgers, generated response bodies, per-host
   telemetry, or raw tmux films. The public agent records are sanitized
   summaries and integrity anchors.
+- Public download of the raw six-run receipts. Their hashes are published, but
+  the receipts retain operational identity and generated text and remain
+  private.
+- A confidence interval or inferential claim from only three campaign-level
+  units per load.
 - A claim that 512 or 1,024 sequences decoded simultaneously. The public record
   explicitly separates client/workflow concurrency from the observed
   16-sequence model-engine high-water mark.

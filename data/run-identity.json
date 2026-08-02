@@ -1,5 +1,5 @@
 {
-  "claim_scope": "pre-optimization baseline, not a record claim",
+  "claim_scope": "frozen pre-optimization starting profile, not a record claim",
   "model": {
     "license_file_sha256": "f2c6c602815669d292889e5be8c802f2ed950653b77999b1584e8e6aed25d040",
     "private_full_manifest_entries": 151,
