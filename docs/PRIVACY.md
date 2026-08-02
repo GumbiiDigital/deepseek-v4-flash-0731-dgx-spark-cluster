@@ -11,7 +11,7 @@ run and trying to redact it afterward.
 - private and overlay network addresses;
 - ports, routes, forwarding details, and SSH configuration;
 - command transcripts and operational logs;
-- generated model responses and streamed text snippets;
+- full generated model responses and raw streamed-text files;
 - request identifiers;
 - per-host telemetry and infrastructure topology.
 
@@ -29,12 +29,20 @@ still treated as private.
 - exact upstream revisions and non-personal content hashes;
 - an integrity hash for the sealed private archive;
 - deterministic scripts that recompute and verify the claims.
+- sanitized agent-run summaries and hashes;
+- live-wall stills with anonymous pair/cell labels and bounded output snippets
+  from the synthetic offline showcase corpus.
 
 The publication verifier rejects user-home paths, private address ranges,
 per-host labels, SSH material, common credential shapes, generated-text fields,
 and symbolic links.
 
-The repository hero image is conceptual artwork generated through Grok
-Imagine. It was reviewed as an image asset, not exported from an account screen
-or captured from the physical environment. It contains no live labels,
-addresses, host identities, account details, or operational topology.
+The repository hero is a deterministic browser composition using an official
+NVIDIA product-photo crop and the official DeepSeek avatar. It contains no live
+labels, addresses, host identities, account details, or operational topology.
+
+The agent-wall stills are real terminal captures. They were reviewed for
+personal and infrastructure details before publication. The visible task
+content is limited to bounded snippets produced from the synthetic offline
+showcase corpus; full responses, prompts, event ledgers, raw films, host data,
+and network data remain private.

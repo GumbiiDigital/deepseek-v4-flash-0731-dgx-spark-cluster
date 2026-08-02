@@ -21,6 +21,29 @@ The first result is a **pre-optimization baseline, not a record claim**. That
 distinction matters. I wanted a clean starting line before I began tuning the
 four pairs in different ways.
 
+## 1,024 live agent workflows on one tmux wall
+
+I also wanted to see how far I could push application-level concurrency and
+actually show the work. The fresh live 1,024-workflow run completed **1,024 of
+1,024 workflows**, **3,072 of 3,072 model requests**, and **zero failed
+workflows** across the same four TP=2 replicas.
+
+![All 1,024 labeled agent workflows visible during live inference](media/agent-showcase/1024-agent-live-wall.jpg)
+
+All 1,024 client requests were in flight at the high-water mark. Inside the
+four vLLM replicas, 16 model sequences ran at once and up to 1,008 requests
+waited in the queues. Those are different layers of concurrency, and I keep
+them separate.
+
+The first 512-workflow run took 463.975 seconds across the event ledger. The
+1,024-workflow run took 893.526 seconds, or 1.93x as long, while the configured
+16-sequence ceiling stayed unchanged. Peak GPU temperature moved from 81 C to
+83 C, with no thermal-gate failures in either run.
+
+See the full [agent concurrency showcase](docs/AGENT-CONCURRENCY-SHOWCASE.md)
+for the method, the 512-to-1,024 comparison, tmux-capture correction, exact
+limits, and media hashes.
+
 ## First measured profile
 
 Each value is the median of three independent repetitions. Every repetition
@@ -98,8 +121,11 @@ privacy rules, and symbolic-link boundary.
 | [docs/VERIFICATION-REPORT.md](docs/VERIFICATION-REPORT.md) | Publication-gate receipt |
 | [docs/PRIVACY.md](docs/PRIVACY.md) | Sanitization method and private/public boundary |
 | [docs/GROK-EXPOSE-HANDOFF.md](docs/GROK-EXPOSE-HANDOFF.md) | Fact sheet and guardrails for the public write-up |
+| [docs/AGENT-CONCURRENCY-SHOWCASE.md](docs/AGENT-CONCURRENCY-SHOWCASE.md) | Fresh live 512- and 1,024-workflow tmux runs, comparison, and evidence boundary |
+| [docs/X-POST-AGENT-SHOWCASE.md](docs/X-POST-AGENT-SHOWCASE.md) | X-ready post and thread copy |
 | [data/README.md](data/README.md) | Sanitized data dictionary |
 | [media/README.md](media/README.md) | Graphic provenance and acceptance record |
+| [media/agent-showcase/README.md](media/agent-showcase/README.md) | Live-wall stills and contact-sheet integrity record |
 | [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | Upstream projects, revisions, and terms |
 
 ## How I treat the evidence

@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "title": "DeepSeek V4 Flash 0731 - fresh live 1024-agent run",
+  "run_id": "live-wall-1024-20260802T192646Z",
+  "truth_label": "captured_during_fresh_live_inference",
+  "execution": {
+    "mode": "live",
+    "model": "DeepSeek-V4-Flash-0731",
+    "topology": "four independent TP=2 replicas across eight DGX Sparks",
+    "task_scope": "synthetic offline PLAN, BUILD, CHECK workloads",
+    "service_mutation": false,
+    "external_requests": false
+  },
+  "results": {
+    "agent_workflows_requested": 1024,
+    "agent_workflows_completed": 1024,
+    "agent_workflows_failed": 0,
+    "requests_expected": 3072,
+    "requests_completed": 3072,
+    "max_live_agent_workflows": 1024,
+    "max_client_requests_in_flight": 1024,
+    "max_server_requests_running_observed": 16,
+    "max_server_requests_waiting_observed": 1008,
+    "collector_samples": 186,
+    "event_ledger_span_seconds": 893.525712,
+    "ttft_seconds": {
+      "mean": 241.084,
+      "p50": 272.317,
+      "p95": 309.516,
+      "p99": 314.285
+    },
+    "end_to_end_seconds": {
+      "mean": 244.991,
+      "p50": 275.761,
+      "p95": 313.38,
+      "p99": 318.621
+    },
+    "peak_gpu_temperature_c": 83,
+    "minimum_memory_available_percent": 5.954,
+    "peak_gpu_utilization_percent": 96,
+    "thermal_gate_fail_samples": 0
+  },
+  "capture": {
+    "raw_source_frames": 1872,
+    "raw_source_film_sha256": "401bdbfea46211ee88c6b37a8cb52b27483a32afe4b81686f49fb910d903f36e",
+    "dropped_incomplete_repaint_frames": 15,
+    "synthetic_or_replayed_frames_added": 0,
+    "source_frames": 1857,
+    "source_fps": 2,
+    "source_duration_seconds": 935.504,
+    "source_film_sha256": "7d3a7414deef74953d35ad28289552981353559cc275f82cf1c44e87fcd4a802",
+    "edit_frames": 300,
+    "edit_fps": 5,
+    "edit_duration_seconds": 60,
+    "active_speedup": 16.412,
+    "final_hold_seconds": 3,
+    "edit_film_sha256": "0b0cd6a27583fc79ba217065b49f2c055820059f06d04e50f47bfb012914ac9f",
+    "visibility_contract": "1024 unique labeled cells in every retained source frame and every selected edit frame"
+  },
+  "receipt_findings": {
+    "marker_format_mismatches": 4,
+    "semantic_failures": 0,
+    "workflow_failures": 0
+  },
+  "delivery": {
+    "file": "deepseek-v4-flash-live-1024-agents.mp4",
+    "sha256": "88cf11bc750cdba38a544b402bbae93b6625a6bc36b4f537b637b6b4a94e7faf",
+    "bytes": 19564446,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "width": 1920,
+    "height": 1080,
+    "fps": 5,
+    "frames": 300,
+    "duration_seconds": 60,
+    "audio": "none by design",
+    "repository_distribution": "not included; hash and still-image evidence only"
+  },
+  "validation": {
+    "state": "pass_with_findings",
+    "decoded_without_error": true,
+    "black_intervals": 0,
+    "minimum_rendered_frame_bytes": 347139,
+    "blank_rendered_frames": 0
+  }
+}

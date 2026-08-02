@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "title": "DeepSeek V4 Flash 0731 - fresh live 512-agent run",
+  "run_id": "live-wall-20260802T184125Z",
+  "truth_label": "captured_during_fresh_live_inference",
+  "execution": {
+    "mode": "live",
+    "model": "DeepSeek-V4-Flash-0731",
+    "topology": "four independent TP=2 replicas across eight DGX Sparks",
+    "task_scope": "synthetic offline PLAN, BUILD, CHECK workloads",
+    "service_mutation": false,
+    "external_requests": false
+  },
+  "results": {
+    "agent_workflows_requested": 512,
+    "agent_workflows_completed": 512,
+    "agent_workflows_failed": 0,
+    "requests_expected": 1536,
+    "requests_completed": 1536,
+    "max_live_agent_workflows": 512,
+    "max_client_requests_in_flight": 512,
+    "max_server_requests_running_observed": 16,
+    "max_server_requests_waiting_observed": 496,
+    "collector_samples": 99,
+    "event_ledger_span_seconds": 463.974748,
+    "ttft_seconds": {
+      "mean": 119.56,
+      "p50": 134.367,
+      "p95": 153.899,
+      "p99": 156.807
+    },
+    "end_to_end_seconds": {
+      "mean": 123.497,
+      "p50": 137.94,
+      "p95": 158.223,
+      "p99": 160.78
+    },
+    "peak_gpu_temperature_c": 81,
+    "minimum_memory_available_percent": 6.023,
+    "peak_gpu_utilization_percent": 96,
+    "thermal_gate_fail_samples": 0
+  },
+  "capture": {
+    "source_frames": 665,
+    "source_fps": 2,
+    "source_duration_seconds": 332.005,
+    "source_film_sha256": "369d0374f3e3ec577af8cff6c7a0552d20523130d2df64d8cd33a54d4fe22806",
+    "edit_frames": 300,
+    "edit_fps": 5,
+    "edit_duration_seconds": 60,
+    "active_speedup": 5.825,
+    "final_hold_seconds": 3,
+    "visibility_contract": "512 unique labeled cells in every selected source frame"
+  },
+  "receipt_findings": {
+    "marker_format_mismatches": 3,
+    "semantic_failures": 0,
+    "workflow_failures": 0
+  },
+  "delivery": {
+    "file": "deepseek-v4-flash-live-512-agents.mp4",
+    "sha256": "1b3157e4d05bd3fe4b08c66a892d4dbe52c21cd6689cc4587b67c748df0b21d7",
+    "bytes": 25093089,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "width": 1920,
+    "height": 1080,
+    "fps": 5,
+    "frames": 300,
+    "duration_seconds": 60,
+    "audio": "none by design"
+  },
+  "browser_playback": {
+    "duration_seconds": 60,
+    "video_width": 1920,
+    "video_height": 1080,
+    "ready_state": 4,
+    "time_advanced_to_seconds": 2.468838,
+    "pause_confirmed": true
+  },
+  "validation": {
+    "state": "pass_with_findings",
+    "decoded_without_error": true,
+    "black_intervals": 0,
+    "publication_lock": false,
+    "human_signoff": "pending"
+  }
+}

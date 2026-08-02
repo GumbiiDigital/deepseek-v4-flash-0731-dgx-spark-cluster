@@ -1,6 +1,6 @@
 # Publication verification report
 
-Verification timestamp: `2026-08-02T03:40:52Z`
+Verification timestamp: `2026-08-02T20:04:50Z`
 
 ## Result
 
@@ -17,8 +17,12 @@ report.
 | Public-method request integrity | Pass | 240 measured; 0 errors; observed completion disclosure 125-128, mean 127.7 |
 | Independent arithmetic | Pass | Pair medians, mean, repetition sums, aggregate medians, and spread recomputed |
 | Stage gates | Pass | 20 of 20 |
+| Fresh live 512-workflow record | Pass with findings | 512 / 512 workflows; 1,536 / 1,536 requests; 0 failed; all 512 labels in all 665 corrected source and 300 edit frames; 3 marker-format notes |
+| Fresh live 1,024-workflow record | Pass with findings | 1,024 / 1,024 workflows; 3,072 / 3,072 requests; 0 failed; all 1,024 labels in all 1,857 retained source and 300 edit frames; 4 marker-format notes |
+| 1,024 capture filter | Pass with disclosure | 15 of 1,872 raw frames caught incomplete tmux repaints and were excluded; 1,857 original complete frames retained; no synthetic or replayed frames added |
+| 1,024 social edit | Pass with human gate | H.264/yuv420p; 1920x1080; 5 fps; 300 frames; 60 seconds; full decode; no black intervals; browser playback verified; MP4 distributed separately |
 | Public manifest | Pass | Every configured public file covered; manifest does not hash itself or `.git` internals |
-| Privacy scan | Pass | No user-home path, private address, per-host label, personal email, SSH material, credential shape, generated-text field, or account-scoped image origin |
+| Privacy scan | Pass | No user-home path, private address, per-host label, personal email, SSH material, credential shape, generated-text JSON field, or account-scoped image origin; live-wall stills contain only anonymous pair/cell labels and bounded output from the synthetic showcase corpus |
 | JSON parse | Pass | All public JSON documents parsed successfully |
 | Local links | Pass | All repository-relative Markdown targets resolved |
 | Symbolic links | Pass | None present in the publication tree |

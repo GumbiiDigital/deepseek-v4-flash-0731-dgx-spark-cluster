@@ -14,7 +14,10 @@ The public bundle permits a reader to verify:
 - all 20 stage-gate outcomes;
 - aggregate telemetry and the retained idle exception;
 - model, runtime, benchmark-client, and private-evidence hashes;
-- every public file through the publication manifest.
+- every public file through the publication manifest;
+- sanitized counters, latency summaries, telemetry bounds, capture hashes, and
+  media properties for the fresh live 512- and 1,024-workflow runs; and
+- the hashes of six live-wall still/contact-sheet assets.
 
 Run:
 
@@ -55,6 +58,12 @@ including all 48 weight shards.
   privately, but no packet capture was retained.
 - An exact reproduction of any external community table.
 - A performance record or universal hardware expectation.
+- The private agent event ledgers, generated response bodies, per-host
+  telemetry, or raw tmux films. The public agent records are sanitized
+  summaries and integrity anchors.
+- A claim that 512 or 1,024 sequences decoded simultaneously. The public record
+  explicitly separates client/workflow concurrency from the observed
+  16-sequence model-engine high-water mark.
 
 These are explicit limitations, not implied passes.
 

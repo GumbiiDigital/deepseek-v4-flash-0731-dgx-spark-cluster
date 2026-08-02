@@ -10,6 +10,8 @@
 | `public-llama-benchy/request-integrity.json` | Request counts, errors, prompt-token distributions, and observed completion-token disclosure |
 | `stage-gates.json` | Twenty sanitized stage outcomes with timestamps and counter-advancement state |
 | `telemetry-summary.json` | Aggregate health, memory, lifecycle, thermal, and idle-exception facts |
+| `agent-showcase-512.json` | Sanitized counters, latency summaries, capture hashes, media properties, and findings for the fresh live 512-workflow run |
+| `agent-showcase-1024.json` | Sanitized counters, latency summaries, capture-filter disclosure, media hashes, and findings for the fresh live 1,024-workflow run |
 
 No data file contains generated text, raw logs, commands, local paths, network
 addresses, SSH material, or per-host identifiers.

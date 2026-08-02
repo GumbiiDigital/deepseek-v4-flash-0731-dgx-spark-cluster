@@ -12,6 +12,31 @@ have four matched starting points for the optimization work that follows.
 The interesting result is not a one-off peak. It is how closely the four pairs
 landed while running concurrently.
 
+There is now a second story in the same repository: fresh live 512- and
+1,024-workflow concurrency runs with every labeled workflow visible on a tmux
+wall. Lead with the 1,024 run if the piece is about the visual showcase.
+
+## Agent showcase facts that can be used
+
+- Fresh live 1,024-workflow run: 1,024 / 1,024 workflows completed, zero failed.
+- Each workflow made three model-backed calls: PLAN, BUILD, and CHECK.
+- Requests completed: 3,072 / 3,072.
+- Maximum client requests in flight: 1,024.
+- Maximum model sequences running across the four replicas: 16.
+- Maximum model requests waiting: 1,008.
+- Event-ledger span: 893.526 seconds.
+- Median TTFT: 272.317 seconds; median end-to-end time: 275.761 seconds.
+- Peak GPU temperature: 83 C; zero thermal-gate failures in 186 samples.
+- Fresh live 512-workflow comparison: 512 / 512 workflows, 1,536 / 1,536
+  requests, zero failed, 463.975-second event span, 134.367-second median TTFT,
+  and 81 C peak GPU temperature.
+- Every one of the 1,024 cells is visible in all 1,857 corrected source frames
+  and all 300 selected edit frames.
+- Fifteen incomplete tmux repaint frames were removed from the raw capture; no
+  synthetic or replayed frames were added.
+- The task corpus was synthetic and offline. The inference, queueing, outputs,
+  telemetry, and receipts were live.
+
 ## Facts that can be used
 
 - Hardware: eight NVIDIA DGX Spark systems.
@@ -52,6 +77,11 @@ landed while running concurrently.
 - Do not claim packet-capture proof or a publicly reproducible custom image.
 - Do not publish hostnames, addresses, ports, account paths, generated model
   text, raw logs, or live topology.
+- Do not translate “1,024 concurrent agent workflows” into “1,024 simultaneous
+  decoding streams.” The measured engine high-water mark was 16 running and
+  1,008 waiting.
+- Do not call the showcase a record, intelligence evaluation, or general
+  benchmark.
 
 The conceptual repository graphic is artwork generated with Grok Imagine. It
 is not evidence of the physical cluster or its wiring.
