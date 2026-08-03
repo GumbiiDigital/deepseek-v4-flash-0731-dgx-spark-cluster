@@ -21,7 +21,37 @@ The first result is a **frozen pre-optimization starting profile, not a record
 claim**. That distinction matters. I wanted a clean starting line before I
 began tuning the four pairs in different ways.
 
-## I did not trust the first 512-to-1,024 result
+## The first 512-to-1,024 result
+
+I started with one fresh 512-workflow visual run and one fresh 1,024-workflow
+visual run. Those results are still part of the record; the later replication
+did not overwrite them.
+
+| Original one-off result | 512 workflows | 1,024 workflows | Change |
+|---|---:|---:|---:|
+| Completed workflows | 512 / 512 | 1,024 / 1,024 | 2.00x |
+| Completed model calls | 1,536 / 1,536 | 3,072 / 3,072 | 2.00x |
+| Maximum client requests in flight | 512 | 1,024 | 2.00x |
+| Maximum model sequences running | 16 | 16 | unchanged |
+| Maximum model requests waiting | 496 | 1,008 | 2.03x |
+| Event-ledger span | 463.975 s | 893.526 s | 1.93x |
+| Median TTFT | 134.367 s | 272.317 s | 2.03x |
+| Median end-to-end time | 137.940 s | 275.761 s | 2.00x |
+| Unique-marker findings | 3 | 4 | disclosed separately |
+| Peak GPU temperature | 81 C | 83 C | +2 C |
+
+That first comparison showed twice the accepted client load behind the same
+16-sequence serving ceiling. Queue depth and median latency roughly doubled,
+and the total campaign span reached 1.93x. It was a real result, but it was
+still only one run at each load.
+
+The sanitized first-run records remain in
+[`agent-showcase-512.json`](data/agent-showcase-512.json) and
+[`agent-showcase-1024.json`](data/agent-showcase-1024.json). The tmux evidence,
+capture checks, and full first-run interpretation are in the
+[agent concurrency record](docs/AGENT-CONCURRENCY-SHOWCASE.md).
+
+### Why I ran it again
 
 The first visual runs looked almost too neat: double the workflows and roughly
 double the time. I did not want to defend that from one run on X, so I froze a
