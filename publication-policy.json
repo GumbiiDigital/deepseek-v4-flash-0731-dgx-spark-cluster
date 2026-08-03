@@ -4,6 +4,7 @@
   "publication_roots": [
     "README.md",
     "NOTICE.md",
+    "LICENSE",
     "COPYRIGHT.md",
     "THIRD_PARTY_NOTICES.md",
     "publication-policy.json",
@@ -64,7 +65,7 @@
     "local_preparation_only": false,
     "remote_push_authorized": true,
     "raw_private_archive_included": false,
-    "rights_status": "all-rights-reserved",
-    "open_source_license_granted": false
+    "rights_status": "open-source-mit",
+    "open_source_license_granted": true
   }
 }
