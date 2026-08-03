@@ -217,7 +217,9 @@ llama-benchy result, and no endorsement is implied.
 No model weights, serving-engine source, comparison-client source, or container
 image are redistributed here.
 
-## Copyright
+## License
 
-Copyright (c) 2026 Gumbii Digital. All rights reserved. See
-[COPYRIGHT.md](COPYRIGHT.md) for the publication and reuse terms.
+Gumbii Digital's original code, documentation, examples, data, diagrams, and
+media are available under the [MIT License](LICENSE). Third-party components,
+assets, product names, and trademarks retain their respective terms; see
+[COPYRIGHT.md](COPYRIGHT.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for scope.
