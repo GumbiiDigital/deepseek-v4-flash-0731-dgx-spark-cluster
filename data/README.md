@@ -13,6 +13,7 @@
 | `agent-showcase-512.json` | Sanitized counters, latency summaries, capture hashes, media properties, and findings for the fresh live 512-workflow run |
 | `agent-showcase-1024.json` | Sanitized counters, latency summaries, capture-filter disclosure, media hashes, and findings for the fresh live 1,024-workflow run |
 | `agent-showcase-replication.json` | Six-run replication record: three complete four-pair campaigns per load, run-level distributions, group summaries, excluded-attempt disclosures, and private-receipt hashes |
+| `hermes-audit-plan.json` | Planned-only Hermes Agent source snapshot and frozen 1,024-workflow audit contract; contains no run result or vulnerability candidate |
 
 No data file contains generated text, raw logs, commands, local paths, network
 addresses, SSH material, or per-host identifiers.
@@ -30,3 +31,10 @@ Use [recompute_replication.py](../scripts/recompute_replication.py) to verify
 the frozen run order and eligibility gates, rebuild both group summaries from
 the six run-level records, and recompute the 1,024-over-512 ratios. It requires
 only Python's standard library.
+
+Use [verify_hermes_audit_plan.py](../scripts/verify_hermes_audit_plan.py) to
+check the frozen workflow allocation, source anchors, pre-run labels, and claim
+boundary. To independently recompute the upstream source inventory from a
+checkout of the exact pinned commit, use
+[inventory_hermes_snapshot.py](../scripts/inventory_hermes_snapshot.py) with
+`--verify data/hermes-audit-plan.json`.

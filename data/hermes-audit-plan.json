@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "record_status": "planned_not_run",
+  "results_status": "no_results_collected",
+  "frozen_utc": "2026-08-02T23:56:23Z",
+  "title": "Hermes Agent 1,024-workflow bounded repository audit plan",
+  "source_snapshot": {
+    "repository": "NousResearch/hermes-agent",
+    "source_url": "https://github.com/NousResearch/hermes-agent",
+    "commit": "a6defd4f1549da3fe1d08d6f746fc645c64543f0",
+    "tree": "d056cf8ee585f28a5e90085ab6fb31b73f31c834",
+    "commit_time": "2026-08-02T16:18:28-07:00",
+    "inventory": {
+      "tracked_files": 8345,
+      "tracked_bytes": 138840634,
+      "text_files": 8248,
+      "text_lines": 2554893,
+      "binary_files": 97,
+      "extension_counts": {
+        "[none]": 42,
+        "ai": 5,
+        "au": 4,
+        "bib": 5,
+        "br": 1,
+        "bst": 5,
+        "c": 1,
+        "ca": 1,
+        "cloud": 1,
+        "club": 1,
+        "cmd": 1,
+        "cn": 6,
+        "com": 287,
+        "css": 12,
+        "de": 1,
+        "dev": 3,
+        "edu": 3,
+        "eu": 2,
+        "example": 2,
+        "fr": 2,
+        "gg": 1,
+        "h": 2,
+        "html": 9,
+        "icns": 2,
+        "ico": 4,
+        "id": 1,
+        "il": 1,
+        "in": 1,
+        "inc": 1,
+        "ini": 1,
+        "io": 2,
+        "it": 2,
+        "jpg": 5,
+        "js": 15,
+        "json": 94,
+        "jsonl": 2,
+        "kitchen": 1,
+        "lan": 1,
+        "local": 18,
+        "lock": 2,
+        "manifest": 1,
+        "md": 1485,
+        "mdx": 5,
+        "me": 3,
+        "mesh": 1,
+        "mjs": 92,
+        "mp4": 1,
+        "net": 8,
+        "nix": 15,
+        "no": 1,
+        "onnx": 1,
+        "org": 3,
+        "pdf": 5,
+        "plist": 2,
+        "png": 60,
+        "ps1": 5,
+        "pw": 1,
+        "py": 3787,
+        "rs": 9,
+        "se": 1,
+        "service": 1,
+        "sg": 1,
+        "sh": 28,
+        "sty": 13,
+        "svg": 3,
+        "team": 1,
+        "tech": 1,
+        "tex": 11,
+        "tflite": 1,
+        "tmpl": 3,
+        "to": 2,
+        "toml": 2,
+        "tr": 1,
+        "ts": 1335,
+        "tsx": 625,
+        "tw": 1,
+        "txt": 14,
+        "uk": 2,
+        "wav": 1,
+        "webp": 4,
+        "woff2": 13,
+        "xml": 5,
+        "xsd": 78,
+        "xyz": 2,
+        "yaml": 127,
+        "yml": 34
+      },
+      "top_level_counts": {
+        ".github": 39,
+        ".plans": 3,
+        "[root]": 60,
+        "acp_adapter": 11,
+        "agent": 180,
+        "apps": 1527,
+        "assets": 1,
+        "contributors": 380,
+        "cron": 11,
+        "datagen-config-examples": 4,
+        "docker": 18,
+        "docs": 17,
+        "gateway": 90,
+        "hermes_cli": 259,
+        "locales": 17,
+        "mcp-research-data": 5,
+        "native": 5,
+        "nix": 15,
+        "optional-mcps": 6,
+        "optional-skills": 529,
+        "plugins": 337,
+        "providers": 3,
+        "scripts": 64,
+        "skills": 548,
+        "tests": 2687,
+        "tests-js": 7,
+        "tools": 133,
+        "tui_gateway": 22,
+        "ui-tui": 444,
+        "web": 161,
+        "website": 762
+      }
+    },
+    "python_ast": {
+      "python_files": 3787,
+      "parse_errors": 0,
+      "runtime_python_files": 955,
+      "runtime_python_functions": 21059,
+      "runtime_python_classes": 1127,
+      "python_test_files": 2685,
+      "python_test_functions": 22823
+    },
+    "typescript_tests": {
+      "test_or_spec_files": 632,
+      "filename_pattern": "*.test.ts, *.test.tsx, *.spec.ts, *.spec.tsx"
+    },
+    "key_file_sha256": {
+      "AGENTS.md": "b207b4010501d62865377ebeb135df1f5f7de30aecc85b108700dbe697a3b163",
+      "SECURITY.md": "ccf15b362e15636731cd09dcc753d0b8d8273f86a0fb0ad94aa85560fe2f59dc",
+      "LICENSE": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6"
+    }
+  },
+  "audit_contract": {
+    "frozen_before_first_audit_request": true,
+    "total_workflows": 1024,
+    "real_audit_units": 960,
+    "positive_controls": 32,
+    "negative_controls": 32,
+    "model_calls_expected": 3072,
+    "model_stages": [
+      "PLAN_TRACE",
+      "BUILD_ATTACK",
+      "CHECK_FALSIFY"
+    ],
+    "workflow_allocation": [
+      {
+        "lane": "core_agent_model_routing_and_tool_execution",
+        "workflows": 192
+      },
+      {
+        "lane": "gateways_authorization_sessions_and_external_surfaces",
+        "workflows": 160
+      },
+      {
+        "lane": "configuration_credentials_profiles_memory_and_isolation",
+        "workflows": 128
+      },
+      {
+        "lane": "plugins_providers_mcp_discovery_and_dependencies",
+        "workflows": 128
+      },
+      {
+        "lane": "cron_kanban_delegation_and_background_durability",
+        "workflows": 96
+      },
+      {
+        "lane": "desktop_tui_web_acp_ipc_and_state_reconciliation",
+        "workflows": 160
+      },
+      {
+        "lane": "tests_ci_installers_updates_and_supply_chain",
+        "workflows": 96
+      },
+      {
+        "lane": "seeded_positive_controls_in_isolated_mutants",
+        "workflows": 32
+      },
+      {
+        "lane": "negative_controls",
+        "workflows": 32
+      }
+    ],
+    "selection_method": {
+      "machine_coverage": "deterministic scanners cover the complete pinned public tree",
+      "semantic_coverage": "risk-stratified immutable source slices selected before model output",
+      "tie_breaker": "SHA-256 ordering",
+      "blind_inputs": "upstream issues, pull requests, and prior findings excluded until post-generation comparison"
+    },
+    "input_contract": [
+      "exact source commit and tree",
+      "immutable source slice and adjacent call context",
+      "applicable upstream development and security invariants",
+      "file and line-content hashes",
+      "no credentials, private infrastructure, or live-account data"
+    ],
+    "output_contract": [
+      "strict JSON schema",
+      "NO_FINDING or CANDIDATE disposition",
+      "exact file and line evidence",
+      "stated preconditions and reachability path",
+      "minimal behavioral test proposal",
+      "uncertainty and attempted falsification"
+    ],
+    "validation_ladder": [
+      "schema_valid",
+      "source_path_and_line_valid",
+      "quoted_evidence_hash_valid",
+      "claimed_path_reachable",
+      "upstream_intent_checked",
+      "isolated_reproducer_or_behavioral_test",
+      "duplicate_and_existing_issue_check",
+      "human_review"
+    ],
+    "canary_sequence": {
+      "offline_schema_workflows": 16,
+      "live_workflows": 64,
+      "live_workflows_per_replica": 16,
+      "required_model_calls": 192,
+      "stop_if_structured_output_failures_at_least": 2
+    },
+    "execution_boundary": {
+      "model_serving": "eight DGX Spark systems as four anonymous TP=2 replicas",
+      "engine_sequence_ceiling_reference": 16,
+      "topology_truth_label": "previously measured configuration; live preflight required before launch",
+      "payload_transport": "private LAN preferred",
+      "overlay_role": "control and recovery only",
+      "source_execution_on_model_nodes": false,
+      "reproduction_environment": "disposable whole-process sandbox with read-only source, no secrets, no home mount, and no outbound network"
+    },
+    "primary_utility_metrics": [
+      "schema-valid response rate",
+      "evidence-valid candidate rate",
+      "reproduction rate",
+      "negative-control false-positive rate",
+      "positive-control detection rate",
+      "duplicate rate",
+      "unique human-confirmed findings",
+      "verified useful findings per active hour"
+    ],
+    "system_metrics": [
+      "completed workflows and model calls",
+      "workflow latency distribution",
+      "prompt and completion token totals",
+      "request and completion-token rates",
+      "model requests running and waiting",
+      "temperature, memory, restart, OOM, and collector gates"
+    ],
+    "publication_boundary": {
+      "public": [
+        "frozen methodology and source identity",
+        "aggregate run and validation counts",
+        "sanitized media",
+        "fixed or disclosure-cleared findings"
+      ],
+      "private": [
+        "raw generated model text",
+        "operational logs and infrastructure identity",
+        "unpatched vulnerability candidates",
+        "exploit or reproduction details pending coordinated disclosure"
+      ],
+      "upstream_security_channel": "GitHub Security Advisory or the security contact named by NousResearch/hermes-agent",
+      "endorsement": "independent audit experiment; no upstream endorsement implied"
+    },
+    "claim_limits": [
+      "not a comprehensive repository audit",
+      "not a security certification",
+      "not 1,024 simultaneous decoding sequences",
+      "not a vulnerability count",
+      "not a result until the frozen run and validation gates complete"
+    ]
+  }
+}

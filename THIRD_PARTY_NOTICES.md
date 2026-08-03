@@ -10,6 +10,7 @@ serving engine, comparison client, or container image.
 | vLLM serving benchmark | deployed build's `vllm bench serve` interface | [Official documentation](https://docs.vllm.ai/en/stable/cli/bench/serve/) | Same vLLM terms |
 | llama-benchy | `e9be344578cec17745066b220798b80a0d2686d3` | [Pinned source commit](https://github.com/eugr/llama-benchy/commit/e9be344578cec17745066b220798b80a0d2686d3) | [MIT](https://github.com/eugr/llama-benchy/blob/e9be344578cec17745066b220798b80a0d2686d3/LICENSE) |
 | NVIDIA DGX Spark | eight systems used as four two-system replicas | [Official hardware guide](https://docs.nvidia.com/dgx/dgx-spark/hardware.html) | NVIDIA documentation and product terms |
+| Hermes Agent | planned audit target pinned at `a6defd4f1549da3fe1d08d6f746fc645c64543f0`; no upstream source redistributed | [Pinned upstream source](https://github.com/NousResearch/hermes-agent/tree/a6defd4f1549da3fe1d08d6f746fc645c64543f0) | [MIT](https://github.com/NousResearch/hermes-agent/blob/a6defd4f1549da3fe1d08d6f746fc645c64543f0/LICENSE) |
 
 The repository hero is a deterministic photo-and-connector composite, not a
 generated hardware scene. It embeds a crop of an official
@@ -41,6 +42,10 @@ NVIDIA, DGX, DGX Spark, DeepSeek, and their associated marks belong to their
 respective owners. Names, the product photograph, and the DeepSeek identity
 mark are used only to identify the independently tested hardware and
 model. No endorsement, partnership, or official benchmark status is implied.
+
+Hermes Agent and Nous Research names identify the independent planned audit
+target only. The source snapshot, audit design, and any later results do not
+imply Nous Research participation, approval, certification, or endorsement.
 
 The tested container is identified in [run-identity.json](data/run-identity.json)
 by an exact image digest. The custom image and its build recipe are not included,

@@ -26,12 +26,18 @@ The public bundle permits a reader to verify:
 - the group timing/rate distributions and all three 1,024-over-512 ratios;
 - the pre-work harness failure and interrupted-campaign disposition; and
 - the source and final hashes for the data-derived comparison graphic.
+- the frozen Hermes Agent source identity, inventory counts, key upstream
+  document hashes, workflow allocation, controls, model-stage count, canary
+  contract, and planned/public/private boundary; and
+- that the Hermes audit record remains explicitly `planned_not_run` with
+  `no_results_collected`.
 
 Run:
 
 ```bash
 python3 scripts/recompute_results.py
 python3 scripts/recompute_replication.py
+python3 scripts/verify_hermes_audit_plan.py
 python3 scripts/verify_public_bundle.py
 ```
 
@@ -78,6 +84,12 @@ including all 48 weight shards.
 - A claim that 512 or 1,024 sequences decoded simultaneously. The public record
   explicitly separates client/workflow concurrency from the observed
   16-sequence model-engine high-water mark.
+- Completion, quality, runtime, or findings from the planned Hermes Agent
+  audit. No audit request, live canary, 1,024-workflow campaign, candidate
+  reproduction, human review, or coordinated disclosure is recorded yet.
+- Exhaustive review or security certification of the pinned Hermes Agent tree.
+  The planned semantic review is bounded and paired with deterministic
+  whole-tree checks.
 
 These are explicit limitations, not implied passes.
 
