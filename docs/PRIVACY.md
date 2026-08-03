@@ -55,15 +55,3 @@ publishes anonymous run labels, aggregate timing/token/queue/safety values,
 normalized runtime-identity hashes, and receipt hashes. Those hashes bind the
 public arithmetic to retained private receipts; they do not make the private
 receipts public.
-
-The planned Hermes audit record follows the same allowlist rule. The public
-pre-run dossier contains the upstream repository identity, pinned commit and
-tree, deterministic inventory counts, document hashes, workflow allocation,
-controls, validation ladder, and disclosure rules. It contains no audit model
-output, candidate detail, exploit sequence, private source-unit payload,
-operational endpoint, or result.
-
-If the audit runs, raw prompts, responses, event ledgers, detailed runtime
-records, generated tests, and unpatched security candidates remain private.
-Only sanitized aggregate counts, evidence hashes, control outcomes, and fixed
-or disclosure-cleared findings are eligible for publication.

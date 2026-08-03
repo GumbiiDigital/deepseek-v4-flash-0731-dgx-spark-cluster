@@ -13,8 +13,3 @@ they do not imply sponsorship, certification, or endorsement.
 Raw operational logs, commands, infrastructure identifiers, generated model
 text, and per-host topology are intentionally not distributed. Their sealed
 private archive is represented here only by an integrity hash and file count.
-
-The repository also contains a planned, independently maintained bounded audit
-design for the public Hermes Agent repository. The plan pins upstream source
-and verification rules before execution. It contains no audit result,
-vulnerability claim, security certification, or upstream endorsement.

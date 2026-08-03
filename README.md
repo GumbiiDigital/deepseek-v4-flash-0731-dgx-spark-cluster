@@ -126,29 +126,6 @@ I will keep the original profile frozen. A faster configuration becomes a new
 profile with its own inputs, measurements, and evidence instead of quietly
 rewriting the starting point.
 
-## Next practical workload: a bounded Hermes Agent audit
-
-The next agent experiment is planned around the official public
-[`NousResearch/hermes-agent`](https://github.com/NousResearch/hermes-agent)
-repository, pinned at commit
-[`a6defd4f1549da3fe1d08d6f746fc645c64543f0`](https://github.com/NousResearch/hermes-agent/commit/a6defd4f1549da3fe1d08d6f746fc645c64543f0).
-
-This moves from synthetic tasks to 1,024 real audit workflows: 960 frozen,
-risk-stratified source units, 32 positive controls in isolated mutant copies,
-and 32 negative controls. Every workflow is planned to make three model calls:
-`PLAN_TRACE`, `BUILD_ATTACK`, and `CHECK_FALSIFY`.
-
-That is a **planned bounded AI-assisted audit**, not an audit result, security
-certification, vulnerability count, or claim that 1,024 model sequences decode
-simultaneously. No audit request has been issued and no finding is claimed in
-this revision.
-
-The frozen [audit plan](docs/HERMES-AUDIT-PLAN.md),
-[verification contract](docs/HERMES-AUDIT-VERIFICATION-CONTRACT.md),
-[privacy/disclosure boundary](docs/HERMES-AUDIT-DISCLOSURE.md), and
-[machine-readable source snapshot](data/hermes-audit-plan.json) are public
-before the run so the scope cannot be rewritten after seeing model output.
-
 ## Verify the numbers yourself
 
 Only Python's standard library is required:
@@ -156,7 +133,6 @@ Only Python's standard library is required:
 ```bash
 python3 scripts/recompute_results.py
 python3 scripts/recompute_replication.py
-python3 scripts/verify_hermes_audit_plan.py
 python3 scripts/verify_public_bundle.py
 ```
 
@@ -178,9 +154,6 @@ rules, and symbolic-link boundary.
 | [docs/GROK-EXPOSE-HANDOFF.md](docs/GROK-EXPOSE-HANDOFF.md) | Fact sheet and guardrails for the public write-up |
 | [docs/AGENT-CONCURRENCY-SHOWCASE.md](docs/AGENT-CONCURRENCY-SHOWCASE.md) | Original live tmux runs plus the separate six-run replacement campaign and evidence boundary |
 | [docs/X-POST-AGENT-SHOWCASE.md](docs/X-POST-AGENT-SHOWCASE.md) | X-ready post and thread copy |
-| [docs/HERMES-AUDIT-PLAN.md](docs/HERMES-AUDIT-PLAN.md) | Frozen pre-run 1,024-workflow audit design, source snapshot, controls, lanes, and launch stages |
-| [docs/HERMES-AUDIT-VERIFICATION-CONTRACT.md](docs/HERMES-AUDIT-VERIFICATION-CONTRACT.md) | Eligibility, receipt, evidence, control, candidate-disposition, and reproducibility gates |
-| [docs/HERMES-AUDIT-DISCLOSURE.md](docs/HERMES-AUDIT-DISCLOSURE.md) | Coordinated-disclosure, sandbox, privacy, and public-language boundaries |
 | [data/README.md](data/README.md) | Sanitized data dictionary |
 | [media/README.md](media/README.md) | Graphic provenance and acceptance record |
 | [media/agent-showcase/README.md](media/agent-showcase/README.md) | Live-wall stills and contact-sheet integrity record |
